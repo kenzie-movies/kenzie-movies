@@ -5,8 +5,8 @@
  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
  
  when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic. 
-  
-  [<img src="https://img.freepik.com/vetores-gratis/ilustracao-em-vetor-de-fundo-de-cinema-de-tira-de-filme-dourado-realista_1017-38172.jpg?size=626&ext=jpg&ga=GA1.2.251560792.1677847378&semt=ais" height=400 width=1200>](https://idroid.vercel.app/) 
+    
+   [<img src="https://avatars.githubusercontent.com/u/122807663?v=4" height=400 width=1200>](https://idroid.vercel.app/)
   
   ## Endpoints
   
