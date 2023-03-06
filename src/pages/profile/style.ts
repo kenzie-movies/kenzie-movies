@@ -1,9 +1,14 @@
 import styled from 'styled-components';
 
-const StyledProfile = styled.div`
+const StyledProfile = styled.header`
 
-width: 300px;
-border: 2px solid red;
+background-color: #1D1741;
+width: 100%;
+height: 100vh;
+margin: 0 auto;
+
+
+
 
 `
 export default StyledProfile;
