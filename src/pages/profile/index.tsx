@@ -6,7 +6,7 @@ return(
 
 
     <StyledProfile>
-        <h1>Página de perfil</h1>
+        {/* <h1>Página de perfil</h1> */}
 
     </StyledProfile>
 
