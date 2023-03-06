@@ -1,12 +1,18 @@
-import StyledProfile from "./style";
+import StyledProfile from './style';
+import HeaderProfile from '../../components/HeaderProfile';
+import BodyProfile from '../../components/BodyProfile';
 
 const Profile = () => {
 
 return(
 
-
     <StyledProfile>
-        {/* <h1>Página de perfil</h1> */}
+
+    <HeaderProfile />
+  
+
+    <BodyProfile/>
+  
 
     </StyledProfile>
 
