@@ -1,13 +1,25 @@
-import Profile from "./pages/profile";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Router from "./routes";
 
-function App() {
+const App = () => {
   return (
-    <div>
-      {/* <h1>App aqui</h1> */}
-
-      <Profile />
-
-    </div>
+    <>
+      <Router />;
+      <ToastContainer
+        position="top-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
+      ;
+    </>
   );
 }
 
