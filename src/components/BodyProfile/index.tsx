@@ -1,72 +1,31 @@
 import StyledBodyProfile from "./style";
-import vingadores from "../../assets/vingadores.svg";
-import harryPotter from "../../assets/harryPotter.svg"
+import StyledCardMovie from "../CardMovie/style";
+import CardMovie from "../CardMovie";
 
 const BodyProfile = () => {
+
+
+
   return (
     <StyledBodyProfile>
-      <div>
+      <div className="infoUser">
         <h2>
-          Olá, <span>Usuário</span>!
+          Olá, <span>Usuário</span>
         </h2>
         <p>Seus filmes favoritos</p>
       </div>
 
-      <ul className="myMoviesFavorites">
-        <li>
-          <img src={vingadores} alt="" />
-          <button>Remover</button>
-        </li>
+      <StyledCardMovie>
+        <CardMovie />
+      </StyledCardMovie>
 
-        <li>
-          <img src={vingadores} alt="" />
-          <button>Remover</button>
-        </li>
-
-        <li>
-          <img src={vingadores} alt="" />
-          <button>Remover</button>
-
-        </li>
-
-        <li>
-          <img src={vingadores} alt="" />
-          <button>Remover</button>
-        </li>
-
-        <li>
-          <img src={vingadores} alt="" />
-          <button>Remover</button>
-        </li>
-      </ul>
-
-      <div>
+      <div className="moviesAdd">
         <p>Filmes adicionados por você</p>
       </div>
 
-      <ul className="myMoviesAdd">
-        <li>
-          <img src={harryPotter} alt="" />
-        </li>
-
-        <li>
-          <img src={harryPotter} alt="" />
-        </li>
-
-        <li>
-          <img src={harryPotter} alt="" />
-        </li>
-
-        <li>
-          <img src={harryPotter} alt="" />
-        </li>
-
-        <li>
-          <img src={harryPotter} alt="" />
-        </li>
-
-      </ul>
-
+      <StyledCardMovie>
+        <CardMovie />
+      </StyledCardMovie>
     </StyledBodyProfile>
   );
 };
