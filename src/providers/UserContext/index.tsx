@@ -21,12 +21,9 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
       const response = await api.post<iResponseUser>("/register", userData);
       navigate("/login");
 
-      console.log(response.data);
-
       toast.success("Usuário cadastrado");
     } catch (error) {
       toast.error("Email já existente");
-      console.log();
     }
   };
 
