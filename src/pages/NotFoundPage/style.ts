@@ -104,7 +104,7 @@ export const NotFoundStyle = styled.main`
     .section_two {
       width: 35%;
       height: 100vh;
-      align-items: center;
+      align-items: flex-end;
       position: fixed;
       top: 0;
       right: 0;
