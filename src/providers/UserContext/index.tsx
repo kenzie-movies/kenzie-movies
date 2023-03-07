@@ -5,6 +5,7 @@ import { api } from "../../services/api";
 import {
   iLoginUser,
   iRegisterUser,
+  iResponseUser,
   iUserContext,
   iUserProviderProps,
 } from "./@types";
@@ -18,17 +19,21 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
   const userRegister = async (data: iRegisterUser) => {
     const userData = { ...data, isAdmin: false };
     try {
-      const response = await api.post("/register", userData);
+      const response = await api.post<iResponseUser>("/register", userData);
       navigate("/login");
+
+      console.log(response.data);
+
       toast.success("Usuário cadastrado");
     } catch (error) {
       toast.error("Email já existente");
+      console.log();
     }
   };
 
   const userLogin = async (data: iLoginUser) => {
     try {
-      const response = await api.post("/login", data);
+      const response = await api.post<iResponseUser>("/login", data);
 
       localStorage.setItem(
         "@KenzieMovies:UserToken",
@@ -36,8 +41,18 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
       );
 
 
+      localStorage.setItem(
+        "@KenzieMovies:UserId",
+        JSON.stringify(response.data.user.id)
+      );
+      navigate("/home");
+
+      console.log(response.data);
+
+
       localStorage.setItem("@KenzieMovies:UserId", response.data.user.id);
       navigate("/profile");
+
     } catch (error) {
       toast.error("Email ou senha inválidos");
     }

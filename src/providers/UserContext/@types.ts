@@ -6,6 +6,15 @@ export interface iUserContext {
 export interface iUserProviderProps {
   children: React.ReactNode;
 }
+export interface iUser {
+  id: number;
+  name: string;
+  email: string;
+  password: string;
+  passwordConfirmation: string;
+  avatarLink: string;
+  isAdmin: boolean;
+}
 
 export interface iRegisterUser {
   name: string;
@@ -21,4 +30,7 @@ export interface iLoginUser {
 }
 
 
-
+export interface iResponseUser {
+  accessToken: string;
+  user: iUser;
+}
