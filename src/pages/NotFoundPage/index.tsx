@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 import { NotFoundStyle } from "./style";
 
 const NotFoundPage = () => {
+  document.title = "404 - NotFound";
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
