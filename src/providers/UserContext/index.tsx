@@ -9,6 +9,7 @@ import {
   iUserProviderProps,
 } from "./@types";
 
+
 export const UserContext = createContext({} as iUserContext);
 
 export const UserProvider = ({ children }: iUserProviderProps) => {
@@ -34,8 +35,9 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
         response.data.accessToken
       );
 
+
       localStorage.setItem("@KenzieMovies:UserId", response.data.user.id);
-      navigate("/home");
+      navigate("/profile");
     } catch (error) {
       toast.error("Email ou senha inválidos");
     }

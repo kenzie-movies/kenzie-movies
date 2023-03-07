@@ -11,6 +11,5 @@ margin: 0 auto;
     padding: 0.5rem 5rem;
 }
 
-
 `
 export default StyledProfile;

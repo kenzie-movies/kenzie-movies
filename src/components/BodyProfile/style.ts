@@ -3,11 +3,26 @@ import styled from "styled-components";
 const StyledBodyProfile = styled.main`
   padding: 0 1rem;
   margin: 0 auto;
-  
-  h2,p {
-      color: #fff;
-      font-weight: bold;
+  padding-bottom: 2rem;
+
+.infoUser{
+
+  margin: 1rem 0;  
+
+  h2{
+    color: #fff;
+    font-weight: bold;
+
+    span{
+      color: #BE0072;
     }
+  }
+  
+  p{
+    margin: 1.5rem 0;
+    color: #fff;
+  }
+}
     
     .myMoviesFavorites {
     background-color:#2F2A61;
@@ -38,6 +53,16 @@ const StyledBodyProfile = styled.main`
         text-align: center;
       }
     }
+  }
+
+  .moviesAdd{
+
+    margin: 2rem 0;
+    
+    p{
+      color: #fff;
+    }
+
   }
 
   .myMoviesAdd{
