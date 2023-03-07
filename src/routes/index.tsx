@@ -13,11 +13,8 @@ const Router = () => {
         <Route path="/" element={<InitialPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
-
-        <Route path="*" element={<NotFoundPage />} />
-
         <Route path="/profile" element={<Profile />} />
-
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </AnimatePresence>
   );

@@ -10,7 +10,6 @@ import {
   iUserProviderProps,
 } from "./@types";
 
-
 export const UserContext = createContext({} as iUserContext);
 
 export const UserProvider = ({ children }: iUserProviderProps) => {
@@ -22,12 +21,9 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
       const response = await api.post<iResponseUser>("/register", userData);
       navigate("/login");
 
-      console.log(response.data);
-
       toast.success("Usuário cadastrado");
     } catch (error) {
       toast.error("Email já existente");
-      console.log();
     }
   };
 
@@ -40,19 +36,11 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
         response.data.accessToken
       );
 
-
       localStorage.setItem(
         "@KenzieMovies:UserId",
         JSON.stringify(response.data.user.id)
       );
       navigate("/home");
-
-      console.log(response.data);
-
-
-      localStorage.setItem("@KenzieMovies:UserId", response.data.user.id);
-      navigate("/profile");
-
     } catch (error) {
       toast.error("Email ou senha inválidos");
     }
