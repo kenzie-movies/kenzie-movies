@@ -44,8 +44,6 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
         JSON.stringify(response.data.user.id)
       );
       navigate("/home");
-
-      console.log(response.data);
     } catch (error) {
       toast.error("Email ou senha inválidos");
     }
