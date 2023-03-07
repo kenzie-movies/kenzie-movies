@@ -2,6 +2,7 @@ import { useState } from "react";
 import { iInputPasswordProps } from "./@types";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { InputPasswordStyle } from "./style";
+import { FiAlertCircle } from "react-icons/fi";
 
 const InputPassword = ({
   label,
@@ -37,7 +38,13 @@ const InputPassword = ({
           {hidePass ? <FaEye size={16} /> : <FaEyeSlash size={16} />}
         </button>
       </div>
-      <span>{errors}</span>
+      <span>
+        {errors && (
+          <>
+            <FiAlertCircle /> {errors}
+          </>
+        )}
+      </span>
     </InputPasswordStyle>
   );
 };

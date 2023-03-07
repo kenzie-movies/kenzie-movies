@@ -1,5 +1,6 @@
 import { iInputProps } from "./@types";
 import { InputStyle } from "./style";
+import { FiAlertCircle } from "react-icons/fi";
 
 const Input = ({
   label,
@@ -13,7 +14,13 @@ const Input = ({
     <InputStyle>
       <label htmlFor={id}>{label}</label>
       <input type={type} id={id} placeholder={placeholder} {...register} />
-      <span>{errors}</span>
+      <span>
+        {errors && (
+          <>
+            <FiAlertCircle /> {errors}
+          </>
+        )}
+      </span>
     </InputStyle>
   );
 };
