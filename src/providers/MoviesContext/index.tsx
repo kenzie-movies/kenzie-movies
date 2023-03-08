@@ -31,8 +31,6 @@ export const MoviesProvider = ({ children }: iMoviesProviderProps) => {
     getMovies();
   }, []);
 
-
-
   return (
     <MoviesContext.Provider value={{ movies, setMovies }}>
       {children}

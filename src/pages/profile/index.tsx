@@ -1,26 +1,13 @@
-import StyledProfile from './style';
-import HeaderProfile from '../../components/HeaderProfile';
-import BodyProfile from '../../components/BodyProfile';
-import CardMovie from '../../components/CardMovie';
+import StyledProfile from "./style";
+import HeaderProfile from "../../components/HeaderProfile";
+import BodyProfile from "../../components/BodyProfile";
 
 const Profile = () => {
-
-return(
-
+  return (
     <StyledProfile>
-
-    <HeaderProfile />
-  
-
-    <BodyProfile/>
-
-    <CardMovie />
-  
-
+      <HeaderProfile />
+      <BodyProfile />
     </StyledProfile>
-
-    ) 
-    
-
-}
+  );
+};
 export default Profile;

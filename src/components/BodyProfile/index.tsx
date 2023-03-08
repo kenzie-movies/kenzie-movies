@@ -1,4 +1,4 @@
-import StyledBodyProfile from "./style";
+import StyledBodyProfile  from "./style";
 import StyledCardMovie from "../CardMovie/style";
 import CardMovie from "../CardMovie";
 
