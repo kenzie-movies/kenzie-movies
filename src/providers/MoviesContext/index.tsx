@@ -6,36 +6,35 @@ import { iGetMovies, iMoviesProvider, iMoviesProviderProps } from "./@types";
 
 export const MoviesContext = createContext({} as iMoviesProvider);
 
-
 export const MoviesProvider = ({ children }: iMoviesProviderProps) => {
-    const navigate = useNavigate();
-    const [movies, setMovies] = useState<iGetMovies[]>([]);
-  
-    const getMovies = async () => {
+  const navigate = useNavigate();
+  const [movies, setMovies] = useState<iGetMovies | []>([]);
+
+  const getMovies = async () => {
     const token = localStorage.getItem("@KenzieMovies:UserToken");
-    
+
     if (token) {
-        try {
-          const response = await api.get<iGetMovies[]>(`/movies`, {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          });
-          setMovies(response.data);
-          navigate("/profile");
-        } catch (error) {
-            toast.error("Verifique os dados e tente novamente");
-        }
-      };
+      try {
+        const response = await api.get<iGetMovies | []>("/movies", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        setMovies(response.data);
+        navigate("/profile");
+      } catch (error) {
+        toast.error("Verifique os dados e tente novamente");
+      }
     }
-    useEffect(() => {
-        getMovies();
+  };
+  useEffect(() => {
+    getMovies();
   }, []);
 
 
 
   return (
-    <MoviesContext.Provider value={{ movies, setMovies, }}>
+    <MoviesContext.Provider value={{ movies, setMovies }}>
       {children}
     </MoviesContext.Provider>
   );

@@ -1,6 +1,6 @@
 export interface iMoviesProvider {
-    movies: iGetMovies[];
-    setMovies: React.Dispatch<React.SetStateAction<iGetMovies[]>>;
+    movies: iGetMovies | [];
+    setMovies: React.Dispatch<React.SetStateAction<iGetMovies | []>>;
   }
   
 export interface iMoviesProviderProps {
