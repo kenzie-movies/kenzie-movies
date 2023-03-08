@@ -44,6 +44,7 @@ const StyledHeader = styled.header`
 
   img {
     width: 12rem;
+    margin-top: 1rem;
   }
 
   @media (min-width: 400px) {
