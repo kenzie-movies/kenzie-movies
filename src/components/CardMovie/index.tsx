@@ -1,57 +1,20 @@
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { api } from "../../services/api";
-
-export interface iGetMovies {
-    name: string;
-    synopsis:string; 
-    cover: string;
-    release: string;
-    duration: string;
-    genre: string;
-    classification:string;
-    verified: boolean;
-    userId: number;
-    id: number;
-}
+import { useContext } from "react";
+import { MoviesContext } from "../../providers/MoviesContext";
 
 const CardMovie = () => {
-  const [movies, setMovies] = useState<iGetMovies[]>([]);
-  const navigate = useNavigate();
 
-  useEffect(() => {
-    const token = localStorage.getItem("@KenzieMovies:UserToken");
+  const { movies } = useContext(MoviesContext);  
 
-    if (token) {
-      const getMovies = async () => {
-        try {
-          const response = await api.get<iGetMovies>(`/movies`, {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          });
-          setMovies(response.data);
-          navigate("/profile");
-        } catch (error) {
-          console.log(error);
-        }
-      };
-      getMovies();
-    }
-  }, []);
-
-
-
-
+  // console.log(movies)
 
   return (
     <>
-      {movies.map((movie) => (
+      {/* {movies.map((movie) => (
         <li key={movie.id}>
           <img src={movie.cover} alt="" />
           <button>Remover</button>
         </li>
-      ))}
+      ))} */}
 
     </>
   );
