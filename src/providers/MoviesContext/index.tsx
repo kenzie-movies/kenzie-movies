@@ -32,7 +32,6 @@ export const MoviesProvider = ({ children }: iMoviesProviderProps) => {
         getMovies();
   }, []);
 
-  console.log(movies)
 
 
   return (
