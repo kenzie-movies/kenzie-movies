@@ -8,6 +8,8 @@ import exit from "../../assets/exit.svg";
 import { BiMenu } from "react-icons/bi";
 
 const HeaderProfile = () => {
+
+
   return (
     <StyledHeader>
       <div className="logo">
