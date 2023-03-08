@@ -5,6 +5,7 @@ import LoginPage from "../pages/LoginPage";
 import NotFoundPage from "../pages/NotFoundPage";
 import RegisterPage from "../pages/RegisterPage";
 import Profile from "../pages/profile";
+import AdminPage from "../pages/AdminPage";
 
 const Router = () => {
   return (
@@ -15,6 +16,7 @@ const Router = () => {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="*" element={<NotFoundPage />} />
+        <Route path="/admin" element={<AdminPage/>} />
       </Routes>
     </AnimatePresence>
   );
