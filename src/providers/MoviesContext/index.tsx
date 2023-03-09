@@ -1,7 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import { api } from "../../services/api";
 import { toast } from "react-toastify";
-import { iGetMovies, iMoviesContext, iMoviesProviderProps } from "./@types";
+import { iGetEditMovie, iGetMovies, iMoviesContext, iMoviesProviderProps } from "./@types";
 import { useNavigate } from "react-router-dom";
 
 export const MoviesContext = createContext({} as iMoviesContext);
@@ -11,6 +11,10 @@ export const MoviesProvider = ({ children }: iMoviesProviderProps) => {
   const [movies, setMovies] = useState<iGetMovies[]>([]);
   const [searchMovie, setSearchMovie] = useState("");
   const [movieFilter, setMovieFilter] = useState<iGetMovies[]>([]);
+  const [modalOpen, setModalOpen] = useState(false)
+
+
+
 
   const navigate = useNavigate();
 
@@ -28,7 +32,9 @@ export const MoviesProvider = ({ children }: iMoviesProviderProps) => {
     };
 
     getMovies();
-  }, [movies]);
+  }, []);
+
+
 
   const handleClick = () => {
     const moviesFilter = movies.filter((movie) =>
@@ -42,9 +48,23 @@ export const MoviesProvider = ({ children }: iMoviesProviderProps) => {
     navigate("/search");
   };
 
+  
+  const editMovie =  async (movieId: number, data: iGetEditMovie) => {
+
+    try{
+      const response = await api.patch(`/movies/${movieId}`, data, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+    } catch( error ) {
+      console.log(error)
+    }
+  }
+
   return (
     <MoviesContext.Provider
-      value={{ movies, setMovies, setSearchMovie, handleClick, movieFilter }}>
+      value={{ movies, setMovies, setSearchMovie, handleClick, movieFilter, editMovie, modalOpen, setModalOpen }}>
       {children}
     </MoviesContext.Provider>
   );

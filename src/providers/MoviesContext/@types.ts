@@ -4,6 +4,9 @@ export interface iMoviesContext {
   setSearchMovie: React.Dispatch<React.SetStateAction<string>>;
   handleClick: () => void;
   movieFilter: iGetMovies[];
+  editMovie: (movieId: number, data: iGetEditMovie) => Promise<void>
+  modalOpen: boolean;
+  setModalOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 export interface iMoviesProviderProps {
@@ -26,3 +29,5 @@ export interface iGetMovies {
 export interface iSearchValue {
   search: string;
 }
+
+export type iGetEditMovie = Omit<iGetMovies, 'userId'| 'id'>

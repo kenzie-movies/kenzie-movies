@@ -37,12 +37,10 @@ const StyledMovies = styled.div`
     border-radius: 20px;
     width: 8rem;
     text-align: center;
+   margin-bottom: 15px;
   }
 
 `;
-
-
-
 
 export default StyledMovies;
 
