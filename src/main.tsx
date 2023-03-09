@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App";
+import { MoviesProvider } from "./providers/MoviesContext";
 import { UserProvider } from "./providers/UserContext";
 import { GlobalReset } from "./styles/reset";
 import { TypographyStyle } from "./styles/typography";
@@ -12,7 +13,9 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
     <TypographyStyle />
     <BrowserRouter>
       <UserProvider>
-        <App />
+        <MoviesProvider>
+          <App />
+        </MoviesProvider>
       </UserProvider>
     </BrowserRouter>
   </React.StrictMode>

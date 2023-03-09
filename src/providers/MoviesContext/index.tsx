@@ -1,40 +1,50 @@
 import { createContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { api } from "../../services/api";
 import { toast } from "react-toastify";
-import { iGetMovies, iMoviesProvider, iMoviesProviderProps } from "./@types";
+import { iGetMovies, iMoviesContext, iMoviesProviderProps } from "./@types";
+import { useNavigate } from "react-router-dom";
 
-export const MoviesContext = createContext({} as iMoviesProvider);
+export const MoviesContext = createContext({} as iMoviesContext);
 
 export const MoviesProvider = ({ children }: iMoviesProviderProps) => {
+  const token = localStorage.getItem("@KenzieMovies:UserToken");
+  const [movies, setMovies] = useState<iGetMovies[]>([]);
+  const [searchMovie, setSearchMovie] = useState("");
+  const [movieFilter, setMovieFilter] = useState<iGetMovies[]>([]);
+
   const navigate = useNavigate();
-  const [movies, setMovies] = useState<iGetMovies | []>([]);
 
-  const getMovies = async () => {
-    const token = localStorage.getItem("@KenzieMovies:UserToken");
-
-    if (token) {
+  useEffect(() => {
+    const getMovies = async () => {
       try {
-        const response = await api.get<iGetMovies | []>("/movies", {
+        const response = await api.get<[iGetMovies]>("/movies", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         });
+
         setMovies(response.data);
-        navigate("/profile");
-      } catch (error) {
-        toast.error("Verifique os dados e tente novamente");
-      }
-    }
-  };
-  useEffect(() => {
+      } catch (error) {}
+    };
+
     getMovies();
-  }, []);
+  }, [movies]);
 
+  const handleClick = () => {
+    const moviesFilter = movies.filter((movie) =>
+      searchMovie === ""
+        ? false
+        : movie.name.toLowerCase().includes(searchMovie.toLowerCase()) ||
+          movie.genre.toLowerCase().includes(searchMovie.toLowerCase())
+    );
 
+    setMovieFilter(moviesFilter);
+    navigate("/search");
+  };
 
   return (
-    <MoviesContext.Provider value={{ movies, setMovies }}>
+    <MoviesContext.Provider
+      value={{ movies, setMovies, setSearchMovie, handleClick, movieFilter }}>
       {children}
     </MoviesContext.Provider>
   );

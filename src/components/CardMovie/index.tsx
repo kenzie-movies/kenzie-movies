@@ -2,10 +2,9 @@ import { useContext } from "react";
 import { MoviesContext } from "../../providers/MoviesContext";
 
 const CardMovie = () => {
+  const { movies } = useContext(MoviesContext);
 
-  const { movies } = useContext(MoviesContext);  
-
-  // console.log(movies)
+  // console.log(movies);
 
   return (
     <>
@@ -15,7 +14,6 @@ const CardMovie = () => {
           <button>Remover</button>
         </li>
       ))} */}
-
     </>
   );
 };
