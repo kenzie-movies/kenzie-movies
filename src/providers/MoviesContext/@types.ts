@@ -4,9 +4,13 @@ export interface iMoviesContext {
   setSearchMovie: React.Dispatch<React.SetStateAction<string>>;
   handleClick: () => void;
   movieFilter: iGetMovies[];
-  editMovie: (movieId: number, data: iGetEditMovie) => Promise<void>
-  modalOpen: boolean;
-  setModalOpen: React.Dispatch<React.SetStateAction<boolean>>
+  editMovie: (movieId: number, data: iGetEditMovie) => Promise<void>;
+  modalEditOpen: boolean;
+  setModalEditOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  showModalEditMovie: (movieId: number) => iGetMovies | undefined;
+  editingMovie: iGetEditMovie;
+  movieVerify: (movieId: number) => Promise<void>;
+  deleteMovie: (movieId: number) => Promise<void>;
 }
 
 export interface iMoviesProviderProps {
@@ -30,4 +34,4 @@ export interface iSearchValue {
   search: string;
 }
 
-export type iGetEditMovie = Omit<iGetMovies, 'userId'| 'id'>
+export type iGetEditMovie = Omit<iGetMovies, "userId">;

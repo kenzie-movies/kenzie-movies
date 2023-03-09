@@ -1,22 +1,26 @@
-import { useContext, useState } from "react";
-import harryPotter from "../../assets/harryPotter.svg";
+import { useContext } from "react";
 import { MoviesContext } from "../../providers/MoviesContext";
 import StyledMovies from "./style";
 
 function AdminMoviesList() {
-  const { movies, setModalOpen} = useContext(MoviesContext);
-
+  const { movies, showModalEditMovie, deleteMovie } = useContext(MoviesContext);
 
   return (
     <StyledMovies>
       <h1> Todos os Filmes </h1>
       <>
-        {movies.map((movie) => 
-        <li key={movie.id}>
-            <img src={movie.cover} alt={movie.name} />
-            <button onClick={() => setModalOpen(true)}>Editar</button>
-            <button>Remover</button>
-          </li>)}
+        {movies.map(
+          (movie) =>
+            movie.verified && (
+              <li key={movie.id}>
+                <img src={movie.cover} alt={movie.name} />
+                <button onClick={() => showModalEditMovie(movie.id)}>
+                  Editar
+                </button>
+                <button onClick={() => deleteMovie(movie.id)}>Remover</button>
+              </li>
+            )
+        )}
       </>
     </StyledMovies>
   );
