@@ -1,6 +1,7 @@
 export interface iUserContext {
   userRegister: (data: iRegisterUser) => Promise<void>;
   userLogin: (data: iLoginUser) => Promise<void>;
+  userLogout: () => void;
 }
 
 export interface iUserProviderProps {

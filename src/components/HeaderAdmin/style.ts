@@ -4,7 +4,7 @@ const StyledHeader = styled.header`
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
- 
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -21,18 +21,16 @@ const StyledHeader = styled.header`
     font-weight: bold;
   }
 
- 
-
-  .icon-movie, .icon-profile, .icon-getout{
+  .icon-movie,
+  .icon-profile,
+  .icon-getout {
     display: flex;
     flex-direction: column;
     font-size: 2rem;
     margin: 0 auto;
-
   }
 
   button {
-
     margin-top: 2rem;
     font-weight: bolder;
     background-color: transparent;
@@ -58,9 +56,7 @@ const StyledHeader = styled.header`
   }
 `;
 
-export const StyledDivButtons = styled.div`
-
-`;
+export const StyledDivButtons = styled.div``;
 
 export const StyledDivSearch = styled.div`
   .icon-search {
@@ -68,7 +64,6 @@ export const StyledDivSearch = styled.div`
     margin-bottom: -11px;
     color: white;
   }
-  
 `;
 
 export default StyledHeader;

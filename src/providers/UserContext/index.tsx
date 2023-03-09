@@ -31,6 +31,8 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
     try {
       const response = await api.post<iResponseUser>("/login", data);
 
+      console.log(response.data);
+
       localStorage.setItem(
         "@KenzieMovies:UserToken",
         response.data.accessToken
@@ -43,12 +45,20 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
       navigate("/home");
     } catch (error) {
       toast.error("Email ou senha inválidos");
+
+      console.error(error);
     }
   };
 
+  const userLogout = () => {
+    localStorage.removeItem("@KenzieMovies:UserToken");
+    localStorage.removeItem("@KenzieMovies:UserId");
+
+    navigate("/");
+  };
 
   return (
-    <UserContext.Provider value={{ userRegister, userLogin, }}>
+    <UserContext.Provider value={{ userRegister, userLogin, userLogout }}>
       {children}
     </UserContext.Provider>
   );
