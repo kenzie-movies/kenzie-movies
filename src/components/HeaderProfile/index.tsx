@@ -4,8 +4,13 @@ import search from "../../assets/search.svg";
 import movies from "../../assets/movies.svg";
 import profile from "../../assets/profile.svg";
 import exit from "../../assets/exit.svg";
+import { useContext } from "react";
+import { MoviesContext } from "../../providers/MoviesContext";
 
 const HeaderProfile = () => {
+  // const { userLogOut } useContext(UserContext);
+  const { setModalMovie, setModalUser } = useContext(MoviesContext);
+
   return (
     <StyledHeader>
       <div className="logoHeader">
@@ -23,9 +28,9 @@ const HeaderProfile = () => {
         </div>
 
         <div className="navigation">
-          <img src={movies} alt="" />
-          <img src={profile} alt="" />
-          <img src={exit} alt="" />
+          <img src={movies} alt="" onClick={() => setModalMovie(true)} />
+          <img src={profile} alt="" onClick={() => setModalUser(true)} />
+          <img src={exit} onClick={() => console.log("Quer sair")} alt="" />
         </div>
       </nav>
     </StyledHeader>

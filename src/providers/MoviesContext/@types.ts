@@ -1,6 +1,10 @@
 export interface iMoviesProvider {
     movies: iGetMovies | [];
     setMovies: React.Dispatch<React.SetStateAction<iGetMovies | []>>;
+    modalMovie: boolean;
+    setModalMovie:React.Dispatch<React.SetStateAction<boolean>>;
+    modalUser:boolean;
+    setModalUser:React.Dispatch<React.SetStateAction<boolean>>;
   }
   
 export interface iMoviesProviderProps {
