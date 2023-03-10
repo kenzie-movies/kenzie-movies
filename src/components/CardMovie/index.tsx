@@ -11,9 +11,10 @@ const CardMovie = () => {
           <img src={movie.cover} alt="" />
           <button>Remover</button>
         </li>
-
+      ))}
     </>
   );
 };
 
 export default CardMovie;
+
