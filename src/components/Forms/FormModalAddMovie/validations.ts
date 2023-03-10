@@ -8,6 +8,7 @@ export const schema = yup
     duration: yup.string().required("Você precisa inserir o tempo de duração"),
     cover: yup.string().required("Você precisa inserir a url da capa"),
     synopsis: yup.string().required("Você precisa inserir a sinopse"),
+    classification: yup.string().required("Você precisa inserir a faixa etária"),
  
   })
   .required()

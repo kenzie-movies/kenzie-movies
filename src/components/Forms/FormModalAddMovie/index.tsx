@@ -14,6 +14,7 @@ export const FormModalAddMovie = () => {
     })
 
     const submit = (formData:iGetMovies) => {
+        // console.log(formData)
         reset()
     }
     
@@ -44,6 +45,11 @@ export const FormModalAddMovie = () => {
                     <label htmlFor="name">Capa</label>
                     {errors.cover?.message}
                     <input id="cover" type="text" placeholder="Insira a url da capa "{...register("cover")} />
+
+
+                    <label htmlFor="name">Classificação</label>
+                    {errors.classification?.message}
+                    <input id="synopsis" placeholder="Insira a  faixa etária"{...register("classification")} />
 
                     <label htmlFor="name">Sinopse</label>
                     {errors.synopsis?.message}

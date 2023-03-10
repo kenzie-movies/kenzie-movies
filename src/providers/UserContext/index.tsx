@@ -15,6 +15,7 @@ export const UserContext = createContext({} as iUserContext);
 
 export const UserProvider = ({ children }: iUserProviderProps) => {
   const [user, setUser] = useState<iResponseUser | null>(null);
+  const [nameUser, setNameUser] = useState<iUser[]>([]);
   const navigate = useNavigate();
 
   const id = localStorage.getItem("@KenzieMovies:UserId");
@@ -74,6 +75,26 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
     }
   };
 
+  const getUser = async () => {
+    const token = localStorage.getItem("@KenzieMovies:UserToken");
+    const idUser = localStorage.getItem("@KenzieMovies:UserId");
+
+    if (token) {
+      try {
+        const response = await api.get<iUser[]>(`/600/users/${idUser}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        setNameUser(response.data);
+      } catch (error) {}
+    }
+  };
+  useEffect(() => {
+    getUser();
+  }, []);
+
   const userLogOut = () => {
     setUser(null);
     localStorage.removeItem("@KenzieMovies:UserToken");
@@ -82,7 +103,9 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
   };
 
   return (
-    <UserContext.Provider value={{ user, userRegister, userLogin, userLogOut }}>
+    <UserContext.Provider
+      value={{ user, nameUser, userRegister, userLogin, userLogOut }}
+    >
       {children}
     </UserContext.Provider>
   );
