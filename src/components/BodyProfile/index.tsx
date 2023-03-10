@@ -26,6 +26,10 @@ const BodyProfile = () => {
         <p>Filmes adicionados por você</p>
       </div>
 
+      <StyledCardMovie>
+        <CardMovie />
+      </StyledCardMovie>
+
     
     </StyledBodyProfile>
   );

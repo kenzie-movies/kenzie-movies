@@ -3,20 +3,22 @@ import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import { schema } from "./validations" 
 import { MoviesContext } from "../../../providers/MoviesContext"
-import { iGetMovies } from "../../../providers/MoviesContext/@types"
+import { iGetEditMovie } from "../../../providers/MoviesContext/@types"
 
 
 export const FormModalAddMovie = () => {
-    const { setModalMovie } = useContext(MoviesContext)
+    const {userId, setModalMovie, addMovie } = useContext(MoviesContext)
 
-    const { register, handleSubmit, reset, formState: { errors } } = useForm<iGetMovies>({
+    const { register, handleSubmit, reset, formState: { errors } } = useForm<iGetEditMovie>({
         resolver: yupResolver(schema)
     })
 
-    const submit = (formData:iGetMovies) => {
-        // console.log(formData)
-        reset()
-    }
+    const submit = (data: iGetEditMovie) => {
+        const movieData = { ...data, userId: userId, verified: false };
+        addMovie(movieData);
+        reset();
+      };
+    
     
     return (
         <div className="modal">
