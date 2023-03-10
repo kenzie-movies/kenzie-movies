@@ -55,18 +55,12 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
     }
   };
 
-  const userLogout = () => {
-    localStorage.removeItem("@KenzieMovies:UserToken");
-    localStorage.removeItem("@KenzieMovies:UserId");
-
-    navigate("/");
-  };
 
   const userLogOut = () => {
     setUser(null);
     localStorage.removeItem('@KenzieMovies:UserToken');
     toast.success('Log out realizado com sucesso.');
-    navigate("/login");
+    navigate("/");
   };
 
 
