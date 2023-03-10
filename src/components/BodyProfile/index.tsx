@@ -6,7 +6,7 @@ import { UserContext } from "../../providers/UserContext";
 
 const BodyProfile = () => {
   
-  // const { user } useContext(UserContext);
+  const { user } =  useContext(UserContext);
 
   return (
     <StyledBodyProfile>
@@ -19,7 +19,7 @@ const BodyProfile = () => {
 
       <StyledCardMovie>
         <CardMovie />
-      </StyledCardMovie>|
+      </StyledCardMovie>
 
       <div className="moviesAdd">
         <p>Filmes adicionados por você</p>

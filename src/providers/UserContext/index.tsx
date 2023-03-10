@@ -32,22 +32,18 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
     try {
       const response = await api.post<iResponseUser>("/login", data);
 
-
-      setUser(response.data)
-
-      console.log(response.data);
-
+      setUser(response.data);
 
       localStorage.setItem(
         "@KenzieMovies:UserToken",
         response.data.accessToken
-        );
+      );
 
       localStorage.setItem(
         "@KenzieMovies:UserId",
         JSON.stringify(response.data.user.id)
       );
-      navigate("/home");
+      navigate("/profile");
     } catch (error) {
       toast.error("Email ou senha inválidos");
 
@@ -55,22 +51,16 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
     }
   };
 
-
   const userLogOut = () => {
     setUser(null);
-    localStorage.removeItem('@KenzieMovies:UserToken');
-    toast.success('Log out realizado com sucesso.');
+    localStorage.removeItem("@KenzieMovies:UserToken");
+    toast.success("Log out realizado com sucesso.");
     navigate("/");
   };
 
-
-
   return (
-
-    <UserContext.Provider value={{user, userRegister, userLogin, userLogOut }}>
-
-        {children}
+    <UserContext.Provider value={{ user, userRegister, userLogin, userLogOut }}>
+      {children}
     </UserContext.Provider>
-    
   );
 };
