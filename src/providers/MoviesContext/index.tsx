@@ -12,12 +12,13 @@ import { useNavigate } from "react-router-dom";
 export const MoviesContext = createContext({} as iMoviesContext);
 
 export const MoviesProvider = ({ children }: iMoviesProviderProps) => {
-
   const token = localStorage.getItem("@KenzieMovies:UserToken");
   const [movies, setMovies] = useState<iGetMovies[]>([]);
   const [searchMovie, setSearchMovie] = useState("");
   const [movieFilter, setMovieFilter] = useState<iGetMovies[]>([]);
   const [modalEditOpen, setModalEditOpen] = useState(false);
+  const [modalMovie, setModalMovie] = useState(false);
+  const [modalUser, setModalUser] = useState(false);
   const [editingMovie, setEditingMovie] = useState<iGetEditMovie>({
     name: "",
     synopsis: "",
@@ -29,7 +30,6 @@ export const MoviesProvider = ({ children }: iMoviesProviderProps) => {
     verified: false,
     id: 0,
   });
-
 
   const navigate = useNavigate();
 
@@ -133,11 +133,14 @@ export const MoviesProvider = ({ children }: iMoviesProviderProps) => {
     } catch (error) {}
   };
 
-
   return (
     <MoviesContext.Provider
       value={{
         movies,
+        modalUser,
+        modalMovie,
+        setModalUser,
+        setModalMovie,
         setMovies,
         setSearchMovie,
         handleClick,
@@ -149,8 +152,8 @@ export const MoviesProvider = ({ children }: iMoviesProviderProps) => {
         editingMovie,
         movieVerify,
         deleteMovie,
-      }}>
-
+      }}
+    >
       {children}
     </MoviesContext.Provider>
   );

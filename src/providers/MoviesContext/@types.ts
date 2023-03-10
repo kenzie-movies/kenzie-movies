@@ -2,6 +2,10 @@
 
 export interface iMoviesContext {
   movies: iGetMovies[];
+  modalMovie:boolean;
+  modalUser:boolean;
+  setModalMovie:React.Dispatch<React.SetStateAction<boolean>>;
+  setModalUser:React.Dispatch<React.SetStateAction<boolean>>;
   setMovies: React.Dispatch<React.SetStateAction<iGetMovies[]>>;
   setSearchMovie: React.Dispatch<React.SetStateAction<string>>;
   handleClick: () => void;
