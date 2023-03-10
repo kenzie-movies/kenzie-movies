@@ -102,9 +102,6 @@ export const MoviesProvider = ({ children }: iMoviesProviderProps) => {
     }
   };
 
-  return (
-    <MoviesContext.Provider value={{ movies, modalMovie,modalUser, setModalMovie,setModalUser, setMovies }}>
-
   const movieVerify = async (movieId: number) => {
     const movieFound = movies.find(
       (movieNoVerified) => movieId === movieNoVerified.id && movieNoVerified
@@ -135,6 +132,7 @@ export const MoviesProvider = ({ children }: iMoviesProviderProps) => {
       toast.success("Filme deletado");
     } catch (error) {}
   };
+
 
   return (
     <MoviesContext.Provider
