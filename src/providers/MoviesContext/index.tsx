@@ -142,6 +142,7 @@ export const MoviesProvider = ({ children }: iMoviesProviderProps) => {
         setModalUser,
         setModalMovie,
         setMovies,
+        searchMovie,
         setSearchMovie,
         handleClick,
         movieFilter,

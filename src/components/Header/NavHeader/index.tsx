@@ -5,7 +5,7 @@ import { useContext } from "react";
 import { UserContext } from "../../../providers/UserContext";
 
 const NavHeader = () => {
-  const { userLogout } = useContext(UserContext);
+  const { userLogOut } = useContext(UserContext);
 
   return (
     <nav>
@@ -17,7 +17,7 @@ const NavHeader = () => {
         <CgProfile />
         Seu Perfil
       </button>
-      <button className="icon-getout" onClick={userLogout}>
+      <button className="icon-getout" onClick={userLogOut}>
         <HiOutlineArrowRightOnRectangle />
         Sair
       </button>
