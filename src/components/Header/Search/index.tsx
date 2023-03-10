@@ -10,9 +10,19 @@ const FormSearch = () => {
     setSearchMovie(event.target.value);
   };
 
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === "Enter") {
+      handleClick();
+    }
+  };
+
   return (
     <DivSearchStyle>
-      <input type="text" onChange={handleInputValue} />
+      <input
+        type="text"
+        onKeyDown={handleKeyDown}
+        onChange={handleInputValue}
+      />
       <button onClick={() => handleClick()}>
         <AiOutlineSearch className="icon-search" />
       </button>

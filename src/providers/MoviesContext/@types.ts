@@ -1,6 +1,7 @@
 export interface iMoviesContext {
   movies: iGetMovies[];
   setMovies: React.Dispatch<React.SetStateAction<iGetMovies[]>>;
+  searchMovie: string;
   setSearchMovie: React.Dispatch<React.SetStateAction<string>>;
   handleClick: () => void;
   movieFilter: iGetMovies[];

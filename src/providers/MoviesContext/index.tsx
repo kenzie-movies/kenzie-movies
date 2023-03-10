@@ -136,6 +136,7 @@ export const MoviesProvider = ({ children }: iMoviesProviderProps) => {
       value={{
         movies,
         setMovies,
+        searchMovie,
         setSearchMovie,
         handleClick,
         movieFilter,
