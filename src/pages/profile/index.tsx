@@ -13,6 +13,8 @@ const Profile = () => {
 
   return (
     <StyledProfile>
+      <HeaderProfile />
+      
       {modalMovie && (
         <StyledFormModalAddMovie>
           <FormModalAddMovie />
@@ -25,7 +27,6 @@ const Profile = () => {
         </StyledFormModalEditUser>
       )}
 
-      <HeaderProfile />
       <BodyProfile />
     </StyledProfile>
   );

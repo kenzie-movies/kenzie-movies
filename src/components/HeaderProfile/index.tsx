@@ -6,9 +6,12 @@ import profile from "../../assets/profile.svg";
 import exit from "../../assets/exit.svg";
 import { useContext } from "react";
 import { MoviesContext } from "../../providers/MoviesContext";
+import { UserContext } from "../../providers/UserContext";
 
 const HeaderProfile = () => {
-  // const { userLogOut } useContext(UserContext);
+  
+  const { userLogOut } =  useContext(UserContext);
+
   const { setModalMovie, setModalUser } = useContext(MoviesContext);
 
   return (
@@ -30,7 +33,7 @@ const HeaderProfile = () => {
         <div className="navigation">
           <img src={movies} alt="" onClick={() => setModalMovie(true)} />
           <img src={profile} alt="" onClick={() => setModalUser(true)} />
-          <img src={exit} onClick={() => console.log("Quer sair")} alt="" />
+          <img src={exit} onClick={() => userLogOut()} alt="" />
         </div>
       </nav>
     </StyledHeader>

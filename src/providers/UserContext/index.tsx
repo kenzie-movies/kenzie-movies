@@ -34,8 +34,6 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
 
       setUser(response.data);
 
-      console.log(response.data);
-
       localStorage.setItem(
         "@KenzieMovies:UserToken",
         response.data.accessToken
@@ -45,7 +43,7 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
         "@KenzieMovies:UserId",
         JSON.stringify(response.data.user.id)
       );
-      navigate("/home");
+      navigate("/profile");
     } catch (error) {
       toast.error("Email ou senha inválidos");
 
