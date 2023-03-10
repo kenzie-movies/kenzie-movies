@@ -1,6 +1,6 @@
 import AdminCardMovie from "../AdminCardMovie";
 import { StyledContainer, StyledSection } from "./style";
-import AdminMoviesList from "../AllMoviesList";
+import AdminMoviesList from "../AdminMoviesList";
 
 function AdminList() {
   return (

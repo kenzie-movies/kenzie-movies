@@ -1,11 +1,9 @@
-
-
 export interface iMoviesContext {
   movies: iGetMovies[];
-  modalMovie:boolean;
-  modalUser:boolean;
-  setModalMovie:React.Dispatch<React.SetStateAction<boolean>>;
-  setModalUser:React.Dispatch<React.SetStateAction<boolean>>;
+  modalMovie: boolean;
+  modalUser: boolean;
+  setModalMovie: React.Dispatch<React.SetStateAction<boolean>>;
+  setModalUser: React.Dispatch<React.SetStateAction<boolean>>;
   setMovies: React.Dispatch<React.SetStateAction<iGetMovies[]>>;
   searchMovie: string;
   setSearchMovie: React.Dispatch<React.SetStateAction<string>>;
@@ -18,8 +16,14 @@ export interface iMoviesContext {
   editingMovie: iGetEditMovie;
   movieVerify: (movieId: number) => Promise<void>;
   deleteMovie: (movieId: number) => Promise<void>;
+  showModalInfoMovie: (movieId: number) => iGetMovies | undefined;
+  addMovie: (data: iGetEditMovie) => Promise<void>;
+  setModalAddOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  modalAddOpen: boolean;
+  setModalInfoOpen: (value: React.SetStateAction<boolean>) => void;
+  modalInfoOpen: boolean;
+  infoMovie: iGetEditMovie;
 }
-
 
 export interface iMoviesProviderProps {
   children: React.ReactNode;
