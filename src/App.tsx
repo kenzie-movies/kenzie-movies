@@ -5,7 +5,7 @@ import Router from "./routes";
 const App = () => {
   return (
     <>
-      <Router />;
+      <Router />
       <ToastContainer
         position="top-right"
         autoClose={2000}
@@ -18,7 +18,6 @@ const App = () => {
         pauseOnHover
         theme="dark"
       />
-      ;
     </>
   );
 }

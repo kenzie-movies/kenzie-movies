@@ -1,3 +1,5 @@
+
+
 export interface iMoviesContext {
   movies: iGetMovies[];
   setMovies: React.Dispatch<React.SetStateAction<iGetMovies[]>>;
@@ -12,6 +14,7 @@ export interface iMoviesContext {
   movieVerify: (movieId: number) => Promise<void>;
   deleteMovie: (movieId: number) => Promise<void>;
 }
+
 
 export interface iMoviesProviderProps {
   children: React.ReactNode;

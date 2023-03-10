@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 const StyledHeader = styled.header`
-  background-color: #1d1741;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;

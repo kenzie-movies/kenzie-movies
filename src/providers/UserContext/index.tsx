@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { api } from "../../services/api";
@@ -13,6 +13,7 @@ import {
 export const UserContext = createContext({} as iUserContext);
 
 export const UserProvider = ({ children }: iUserProviderProps) => {
+  const [user, setUser] = useState<iResponseUser | null>(null);
   const navigate = useNavigate();
 
   const userRegister = async (data: iRegisterUser) => {
@@ -31,12 +32,16 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
     try {
       const response = await api.post<iResponseUser>("/login", data);
 
+
+      setUser(response.data)
+
       console.log(response.data);
+
 
       localStorage.setItem(
         "@KenzieMovies:UserToken",
         response.data.accessToken
-      );
+        );
 
       localStorage.setItem(
         "@KenzieMovies:UserId",
@@ -57,9 +62,21 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
     navigate("/");
   };
 
+  const userLogOut = () => {
+    setUser(null);
+    localStorage.removeItem('@KenzieMovies:UserToken');
+    toast.success('Log out realizado com sucesso.');
+    navigate("/login");
+  };
+
+
+
   return (
-    <UserContext.Provider value={{ userRegister, userLogin, userLogout }}>
-      {children}
+
+    <UserContext.Provider value={{user, userRegister, userLogin, userLogOut }}>
+
+        {children}
     </UserContext.Provider>
+    
   );
 };

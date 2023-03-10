@@ -4,6 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import { MoviesProvider } from "./providers/MoviesContext";
 import { UserProvider } from "./providers/UserContext";
+import { MoviesProvider } from "./providers/MoviesContext";
 import { GlobalReset } from "./styles/reset";
 import { TypographyStyle } from "./styles/typography";
 
@@ -14,8 +15,8 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
     <BrowserRouter>
       <UserProvider>
         <MoviesProvider>
-          <App />
-        </MoviesProvider>
+        <App />
+      </MoviesProvider>
       </UserProvider>
     </BrowserRouter>
   </React.StrictMode>
