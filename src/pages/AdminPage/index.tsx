@@ -1,18 +1,18 @@
-import AdminCardMovie from "../../components/AdminCardMovie";
+import { useContext } from "react";
 import AdminList from "../../components/AdminPageList";
-import AdminMoviesList from "../../components/AllMoviesList";
-import HeaderAdmin from "../../components/HeaderAdmin";
-
+import Header from "../../components/Header";
+import ModalEditMovie from "../../components/Modals/ModalEditMovie";
+import { MoviesContext } from "../../providers/MoviesContext";
 
 const AdminPage = () => {
+  const { modalEditOpen } = useContext(MoviesContext);
 
   return (
     <>
-    <HeaderAdmin></HeaderAdmin>
-   
-    <AdminList></AdminList>
+      <Header></Header>
+      <AdminList></AdminList>
+      {modalEditOpen && <ModalEditMovie></ModalEditMovie>}
     </>
-    
   );
 };
 

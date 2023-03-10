@@ -1,38 +1,48 @@
+import { useContext } from "react";
 import vingadores from "../../assets/vingadores.svg";
+import { MoviesContext } from "../../providers/MoviesContext";
 import { StyledButton, StyledContainer } from "./style";
 
 //componente do card de aceitar solicitação de filme
 
 function AdminCardMovie() {
+  const { movies, movieVerify, deleteMovie } = useContext(MoviesContext);
+
+  const unverifiedMovies = movies.filter((movie) => !movie.verified);
+
   return (
     <StyledContainer>
       <ul>
-        <li>
-          <div>
-            <img src={vingadores} alt="" />
-          </div>
-          <div>
-            <h2>Nome: Doutor Estranho no Multiverso da Loucura</h2>
-            <p>Duração: 2 horas e 6 minutos</p>
-            <p>Categoria: Ação</p>
-            <p>Data de Lançamento: 2 de maio de 2022</p>
-            <p>
-              Sinopse: Em Doutor Estranho no Multiverso da Loucura, após
-              derrotar Dormammu e enfrentar Thanos nos eventos de Vingadores:
-              Ultimato, o Mago Supremo, Stephen Strange (Benedict Cumberbatch),
-              e seu parceiro Wong (Benedict Wong), continuam suas pesquisas
-              sobre a Joia do Tempo. Mas um velho amigo que virou inimigo coloca
-              um ponto final nos seus planos e faz com que Strange desencadeie
-              um mal indescritível, o obrigando a enfrentar uma nova e poderosa
-              ameaça.
-            </p>
+        {unverifiedMovies.length ? (
+          unverifiedMovies.map(
+            (movie) =>
+              !movie.verified && (
+                <li key={movie.id}>
+                  <div>
+                    <img src={movie.cover} alt={movie.name} />
+                  </div>
+                  <div>
+                    <h2>Nome: {movie.name}</h2>
+                    <p>Duração: {movie.duration}</p>
+                    <p>Categoria: {movie.genre}</p>
+                    <p>Data de Lançamento:{movie.release}</p>
+                    <p>Sinopse: {movie.synopsis}</p>
 
-            <StyledButton>
-              <button>Aceitar</button>
-              <button>Rejeitar</button>
-            </StyledButton>
-          </div>
-        </li>
+                    <StyledButton>
+                      <button onClick={() => movieVerify(movie.id)}>
+                        Aceitar
+                      </button>
+                      <button onClick={() => deleteMovie(movie.id)}>
+                        Rejeitar
+                      </button>
+                    </StyledButton>
+                  </div>
+                </li>
+              )
+          )
+        ) : (
+          <p>Não existem filmes a serem verificados</p>
+        )}
       </ul>
     </StyledContainer>
   );

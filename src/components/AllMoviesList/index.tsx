@@ -1,19 +1,28 @@
-import harryPotter from "../../assets/harryPotter.svg";
+import { useContext } from "react";
+import { MoviesContext } from "../../providers/MoviesContext";
 import StyledMovies from "./style";
 
 function AdminMoviesList() {
+  const { movies, showModalEditMovie, deleteMovie } = useContext(MoviesContext);
+
   return (
-   
-    
     <StyledMovies>
-        <h1> Todos os Filmes </h1>
-      <li>
-        <img src={harryPotter} alt="" />
-        <button>Remover</button>
-      </li>
-
+      <h1> Todos os Filmes </h1>
+      <>
+        {movies.map(
+          (movie) =>
+            movie.verified && (
+              <li key={movie.id}>
+                <img src={movie.cover} alt={movie.name} />
+                <button onClick={() => showModalEditMovie(movie.id)}>
+                  Editar
+                </button>
+                <button onClick={() => deleteMovie(movie.id)}>Remover</button>
+              </li>
+            )
+        )}
+      </>
     </StyledMovies>
-
   );
 }
 

@@ -2,8 +2,7 @@ import { useContext } from "react";
 import { MoviesContext } from "../../providers/MoviesContext";
 
 const CardMovie = () => {
-
-  const { movies } = useContext(MoviesContext);  
+  const { movies } = useContext(MoviesContext);
 
   return (
     <>
@@ -12,7 +11,6 @@ const CardMovie = () => {
           <img src={movie.cover} alt="" />
           <button>Remover</button>
         </li>
-      ))}
 
     </>
   );
