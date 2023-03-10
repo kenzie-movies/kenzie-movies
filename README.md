@@ -1,13 +1,18 @@
  [<img src="src/assets/logo.svg" height=100 width=1200>](https://idroid.vercel.app/)
 
 <!-- <h1 align="center"> Projeto final M3 </h1>  -->
+
     
  Este é o projeto final - M3 da aplicação **Kenzie movies** - O objetivo dessa aplicação é proporcionar aos amantes de filmes uma experiência agradável na
  hora de escolher e favoritar seus filmes preferidos. 
      
 <!--    [<img src="https://avatars.githubusercontent.com/u/122807663?v=4" height=400 width=1200>](https://idroid.vercel.app/) -->
    
-  ## Endpoints
+   ## :hammer: Funcionalidades
+   
+   
+
+  ##  Endpoints
   
   A API contém um total de X endpoints, sendo possível cadastrar novos usuários, realizar login e favoritar filmes, além de ... 
   
@@ -92,11 +97,6 @@ Email já cadastrado.
    ```
    
  ## Autores
-
- [<img src="https://avatars.githubusercontent.com/u/110136069?v=4" width=200><br>Isabel Paiva](https://github.com/isabelpaiva) 
-
-[<img src="https://avatars.githubusercontent.com/u/110182130?v=4" width=200><br>Daniel Mello](https://github.com/DMCFaria)
-
-[<img src="https://ca.slack-edge.com/TQZR39SET-U03TMPVTXNZ-fe056e3cb69f-72" width=200><br>Roger Magalhães](https://github.com/Rogermferr)
-
-[<img src="https://avatars.githubusercontent.com/u/99143799?s=120&v=4" width=200><br>Onésimo brito](https://github.com/briito)
+ 
+| [<img src="https://avatars.githubusercontent.com/u/110136069?v=4" width=200><br><sub>Isabel Paiva</sub>](https://github.com/isabelpaiva) |  [<img src="https://avatars.githubusercontent.com/u/110182130?v=4" width=200><br><sub>Daniel Mello</sub>](https://github.com/DMCFaria) | [<img src="https://ca.slack-edge.com/TQZR39SET-U03TMPVTXNZ-fe056e3cb69f-72" width=200><br><sub>Roger Magalhães</sub>](https://github.com/Rogermferr) | [<img src="https://avatars.githubusercontent.com/u/99143799?s=120&v=4" width=200><br><sub>Onésimo brito</sub>](https://github.com/briito)
+| :---: | :---: | :---: |  :---: |
