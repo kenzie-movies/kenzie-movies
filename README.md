@@ -1,17 +1,15 @@
-<h1 align="center">Kenzie movies - Projeto final M3 </h1>
+ [<img src="src/assets/logo.svg" height=100 width=1200>](https://idroid.vercel.app/)
+
+<!-- <h1 align="center"> Projeto final M3 </h1>  -->
     
- Este é o projeto final - M3 da aplicação **Kenzie movies** - O objetivo dessa aplicação é proporcionar aos amantes de filmes,.......
- 
- Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
- 
- when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic. 
-    
-   [<img src="https://avatars.githubusercontent.com/u/122807663?v=4" height=400 width=1200>](https://idroid.vercel.app/)
-  
+ Este é o projeto final - M3 da aplicação **Kenzie movies** - O objetivo dessa aplicação é proporcionar aos amantes de filmes uma experiência agradável na
+ hora de escolher e favoritar seus filmes preferidos. 
+     
+<!--    [<img src="https://avatars.githubusercontent.com/u/122807663?v=4" height=400 width=1200>](https://idroid.vercel.app/) -->
+   
   ## Endpoints
   
   A API contém um total de X endpoints, sendo possível cadastrar novos usuários, realizar login e favoritar filmes, além de ... 
-  
   
  A url base da API é esta: [https://kenzie-movies.onrender.com/](https://kenzie-movies.onrender.com/)
   
