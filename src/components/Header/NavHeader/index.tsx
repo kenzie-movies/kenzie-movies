@@ -3,17 +3,19 @@ import { CgProfile } from "react-icons/cg";
 import { HiOutlineArrowRightOnRectangle } from "react-icons/hi2";
 import { useContext } from "react";
 import { UserContext } from "../../../providers/UserContext";
+import { MoviesContext } from "../../../providers/MoviesContext";
 
 const NavHeader = () => {
   const { userLogOut } = useContext(UserContext);
+  const { setModalMovie, setModalUser } = useContext(MoviesContext);
 
   return (
     <nav>
-      <button className="icon-movie">
+      <button className="icon-movie" onClick={() => setModalMovie(true)}>
         <TbMovie />
         Solicitar Filme
       </button>
-      <button className="icon-profile">
+      <button className="icon-profile" onClick={() => setModalUser(true)}>
         <CgProfile />
         Seu Perfil
       </button>
