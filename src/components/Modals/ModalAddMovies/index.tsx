@@ -42,57 +42,69 @@ export const ModalAddMovie = () => {
 
   return (
     <StyledModal>
-      <form onSubmit={handleSubmit(submit)}>
-        <h1> Editar Filme</h1>
-        <button type="button" onClick={() => setModalAddOpen(false)}>
-          X
-        </button>
-        <Input
-          label="Nome do filme"
-          type="text"
-          id="name"
-          placeholder="Digite o nome aqui"
-          register={register("name")}
-          errors={errors.name?.message}></Input>
-        <Input
-          label="Categoria"
-          type="text"
-          id="genre"
-          placeholder="Digite a categoria aqui"
-          register={register("genre")}
-          errors={errors.genre?.message}></Input>
-        <Input
-          label="Data de Lançamento"
-          type="text"
-          id="release"
-          placeholder="Digite a data aqui"
-          register={register("release")}
-          errors={errors.release?.message}></Input>
-        <Input
-          label="Duração"
-          type="text"
-          id="duration"
-          placeholder="Digite a duração aqui"
-          register={register("duration")}
-          errors={errors.duration?.message}></Input>
-        <Input
-          label="Capa"
-          type="text"
-          id="cover"
-          placeholder="Coloque o link da capa aqui"
-          register={register("cover")}
-          errors={errors.cover?.message}></Input>
-        <Input
-          label="Classificação"
-          type="text"
-          id="classification"
-          placeholder="Digite a classificação aqui"
-          register={register("classification")}
-          errors={errors.classification?.message}></Input>
-        <label htmlFor="synopsis">Sinopse</label>
-        <textarea id="synopsis" {...register("synopsis")}></textarea>
-        <button type="submit"> Enviar </button>
-      </form>
+      <div className="modal">
+        <div className="titleForm">
+          <h4>Editar Filme</h4>
+          <span onClick={() => setModalAddOpen(false)}>X</span>
+        </div>
+
+        <div className="boxForm">
+          <form onSubmit={handleSubmit(submit)}>
+     
+            <Input
+              label="Nome do filme"
+              type="text"
+              id="name"
+              placeholder="Digite o nome aqui"
+              register={register("name")}
+              errors={errors.name?.message}
+            ></Input>
+            <Input
+              label="Categoria"
+              type="text"
+              id="genre"
+              placeholder="Digite a categoria aqui"
+              register={register("genre")}
+              errors={errors.genre?.message}
+            ></Input>
+            <Input
+              label="Data de Lançamento"
+              type="text"
+              id="release"
+              placeholder="Digite a data aqui"
+              register={register("release")}
+              errors={errors.release?.message}
+            ></Input>
+            <Input
+              label="Duração"
+              type="text"
+              id="duration"
+              placeholder="Digite a duração aqui"
+              register={register("duration")}
+              errors={errors.duration?.message}
+            ></Input>
+            <Input
+              label="Capa"
+              type="text"
+              id="cover"
+              placeholder="Coloque o link da capa aqui"
+              register={register("cover")}
+              errors={errors.cover?.message}
+            ></Input>
+            <Input
+              label="Classificação"
+              type="text"
+              id="classification"
+              placeholder="Digite a classificação aqui"
+              register={register("classification")}
+              errors={errors.classification?.message}
+            ></Input>
+            <label htmlFor="synopsis">Sinopse</label>
+            <textarea id="synopsis"  placeholder="Insira a descrição do filme " {...register("synopsis")}></textarea>
+            <button type="submit"> Enviar </button>
+          </form>
+        </div>
+      </div>
     </StyledModal>
   );
 };
