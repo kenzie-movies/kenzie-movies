@@ -1,13 +1,12 @@
 import { useContext } from "react";
 import { MoviesContext } from "../../../providers/MoviesContext";
-import { StyledModal } from "../ModalAddMovies/style";
 
 const InfoMoviesModal = () => {
   const { infoMovie, setModalInfoOpen } = useContext(MoviesContext);
 
   return (
     <>
-      <StyledModal>
+      <div>
         <h2>{infoMovie.name}</h2>
         <button onClick={() => setModalInfoOpen(false)}>X</button>
         <div>
@@ -21,7 +20,7 @@ const InfoMoviesModal = () => {
             <button>Adicionar aos favoritos</button>
           </div>
         </div>
-      </StyledModal>
+      </div>
     </>
   );
 };

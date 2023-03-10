@@ -19,8 +19,6 @@ export interface iMoviesContext {
   deleteMovie: (movieId: number) => Promise<void>;
   showModalInfoMovie: (movieId: number) => iGetMovies | undefined;
   addMovie: (data: iGetEditMovie) => Promise<void>;
-  setModalAddOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  modalAddOpen: boolean;
   setModalInfoOpen: (value: React.SetStateAction<boolean>) => void;
   modalInfoOpen: boolean;
   infoMovie: iGetEditMovie;

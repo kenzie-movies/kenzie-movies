@@ -18,7 +18,7 @@ export const MoviesProvider = ({ children }: iMoviesProviderProps) => {
   const [searchMovie, setSearchMovie] = useState("");
   const [movieFilter, setMovieFilter] = useState<iGetMovies[]>([]);
   const [modalEditOpen, setModalEditOpen] = useState(false);
-  const [modalAddOpen, setModalAddOpen] = useState(false);
+  // const [modalAddOpen, setModalAddOpen] = useState(false);
   const [modalInfoOpen, setModalInfoOpen] = useState(false);
   const [modalMovie, setModalMovie] = useState(false);
   const [modalUser, setModalUser] = useState(false);
@@ -57,7 +57,9 @@ export const MoviesProvider = ({ children }: iMoviesProviderProps) => {
         });
 
         setMovies(response.data);
-      } catch (error) {}
+      } catch (error) {
+        console.error(error);
+      }
     };
 
     getMovies();
@@ -155,7 +157,7 @@ export const MoviesProvider = ({ children }: iMoviesProviderProps) => {
         },
       });
 
-      setModalAddOpen(false);
+      setModalMovie(false);
       toast.warn("Filme será verificado pelo Admin");
     } catch (error) {
       console.log(error);
@@ -196,8 +198,6 @@ export const MoviesProvider = ({ children }: iMoviesProviderProps) => {
         deleteMovie,
         showModalInfoMovie,
         addMovie,
-        setModalAddOpen,
-        modalAddOpen,
         modalInfoOpen,
         setModalInfoOpen,
         infoMovie,

@@ -14,31 +14,16 @@ import {
 export const UserContext = createContext({} as iUserContext);
 
 export const UserProvider = ({ children }: iUserProviderProps) => {
-  const [user, setUser] = useState<iResponseUser | null>(null);
-  const [nameUser, setNameUser] = useState<iUser[]>([]);
+  const [user, setUser] = useState<iUser | null>(
+    JSON.parse(localStorage.getItem("@KenzieMovies:User")!) || null
+  );
   const navigate = useNavigate();
 
-  const id = localStorage.getItem("@KenzieMovies:UserId");
   const token = localStorage.getItem("@KenzieMovies:UserToken");
 
   useEffect(() => {
-    const getuser = async (id: string) => {
-      try {
-        const response = await api.get<iResponseUser>(`users/${id}`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-        setUser(response.data);
-        console.log(response.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    if (id) {
-      getuser(id);
-    }
-  }, []);
+    setUser(JSON.parse(localStorage.getItem("@KenzieMovies:User")!));
+  }, [token]);
 
   const userRegister = async (data: iRegisterUser) => {
     const userData = { ...data, isAdmin: false };
@@ -56,7 +41,7 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
     try {
       const response = await api.post<iResponseUser>("/login", data);
 
-      setUser(response.data);
+      setUser(response.data.user);
 
       localStorage.setItem(
         "@KenzieMovies:UserToken",
@@ -64,9 +49,10 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
       );
 
       localStorage.setItem(
-        "@KenzieMovies:UserId",
-        JSON.stringify(response.data.user.id)
+        "@KenzieMovies:User",
+        JSON.stringify(response.data.user)
       );
+
       navigate("/home");
     } catch (error) {
       toast.error("Email ou senha inválidos");
@@ -75,37 +61,17 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
     }
   };
 
-  const getUser = async () => {
-    const token = localStorage.getItem("@KenzieMovies:UserToken");
-    const idUser = localStorage.getItem("@KenzieMovies:UserId");
-
-    if (token) {
-      try {
-        const response = await api.get<iUser[]>(`/600/users/${idUser}`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-
-        setNameUser(response.data);
-      } catch (error) {}
-    }
-  };
-  useEffect(() => {
-    getUser();
-  }, []);
-
   const userLogOut = () => {
     setUser(null);
     localStorage.removeItem("@KenzieMovies:UserToken");
-    toast.success("Log out realizado com sucesso.");
+    localStorage.removeItem("@KenzieMovies:User");
+
+    toast.success("Logout realizado com sucesso.");
     navigate("/");
   };
 
   return (
-    <UserContext.Provider
-      value={{ user, nameUser, userRegister, userLogin, userLogOut }}
-    >
+    <UserContext.Provider value={{ user, userRegister, userLogin, userLogOut }}>
       {children}
     </UserContext.Provider>
   );

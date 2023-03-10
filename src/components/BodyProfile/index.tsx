@@ -1,19 +1,18 @@
 import { useContext } from "react";
-import StyledBodyProfile  from "./style";
+import StyledBodyProfile from "./style";
 import StyledCardMovieAdd from "../CardMovie/style";
 import CardMovie from "../CardMovie";
 import { UserContext } from "../../providers/UserContext";
 import StyledCardMovie from "../CardMovie/style";
 
 const BodyProfile = () => {
-  
-  const { nameUser } =  useContext(UserContext);
+  const { user } = useContext(UserContext);
 
   return (
     <StyledBodyProfile>
       <div className="infoUser">
         <h2>
-          Olá, <span>{nameUser.name}</span>
+          Olá, <span>{user?.name}</span>
         </h2>
         <p>Seus filmes favoritos</p>
       </div>
@@ -29,8 +28,6 @@ const BodyProfile = () => {
       <StyledCardMovie>
         <CardMovie />
       </StyledCardMovie>
-
-    
     </StyledBodyProfile>
   );
 };
