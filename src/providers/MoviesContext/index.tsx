@@ -59,6 +59,17 @@ export const MoviesProvider = ({ children }: iMoviesProviderProps) => {
     navigate("/search");
   };
 
+  useEffect(() => {
+    const moviesFilter = movies.filter((movie) =>
+      searchMovie === ""
+        ? false
+        : movie.name.toLowerCase().includes(searchMovie.toLowerCase()) ||
+          movie.genre.toLowerCase().includes(searchMovie.toLowerCase())
+    );
+
+    setMovieFilter(moviesFilter);
+  }, [searchMovie]);
+
   const showModalEditMovie = (movieId: number) => {
     const movieFound = movies.find((movie) => {
       if (movie.id === movieId) {
