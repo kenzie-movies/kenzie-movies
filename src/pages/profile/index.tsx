@@ -6,15 +6,15 @@ import { FormModalAddMovie } from "../../components/Forms/FormModalAddMovie";
 import { StyledFormModalAddMovie } from "../../components/Forms/FormModalAddMovie/style";
 import { StyledFormModalEditUser } from "../../components/Forms/FormModalEditUser/style";
 import { FormModalEditUser } from "../../components/Forms/FormModalEditUser";
-import NavHeader from "../../components/Header/NavHeader";
+import Header from "../../components/Header";
 
 const Profile = () => {
   const { modalMovie, modalUser } = useContext(MoviesContext);
 
   return (
     <StyledProfile>
-      <NavHeader />
-      
+      <Header />
+
       {modalMovie && (
         <StyledFormModalAddMovie>
           <FormModalAddMovie />

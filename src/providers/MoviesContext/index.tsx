@@ -13,6 +13,7 @@ export const MoviesContext = createContext({} as iMoviesContext);
 
 export const MoviesProvider = ({ children }: iMoviesProviderProps) => {
   const token = localStorage.getItem("@KenzieMovies:UserToken");
+  const userId = localStorage.getItem("@KenzieMovies:UserId");
   const [movies, setMovies] = useState<iGetMovies[]>([]);
   const [searchMovie, setSearchMovie] = useState("");
   const [movieFilter, setMovieFilter] = useState<iGetMovies[]>([]);
@@ -175,6 +176,7 @@ export const MoviesProvider = ({ children }: iMoviesProviderProps) => {
   return (
     <MoviesContext.Provider
       value={{
+        userId,
         movies,
         modalUser,
         modalMovie,
@@ -199,8 +201,7 @@ export const MoviesProvider = ({ children }: iMoviesProviderProps) => {
         modalInfoOpen,
         setModalInfoOpen,
         infoMovie,
-      }}
-    >
+      }}>
       {children}
     </MoviesContext.Provider>
   );

@@ -25,7 +25,7 @@ const formSchema = yup.object({
 });
 
 export const ModalAddMovie = () => {
-  const { setModalAddOpen, addMovie } = useContext(MoviesContext);
+  const { userId, setModalAddOpen, addMovie } = useContext(MoviesContext);
   const {
     register,
     handleSubmit,
@@ -36,7 +36,8 @@ export const ModalAddMovie = () => {
   });
 
   const submit = (data: iGetEditMovie) => {
-    addMovie(data);
+    const movieData = { ...data, userId: userId, verified: false };
+    addMovie(movieData);
   };
 
   return (
@@ -52,48 +53,42 @@ export const ModalAddMovie = () => {
           id="name"
           placeholder="Digite o nome aqui"
           register={register("name")}
-          errors={errors.name?.message}
-        ></Input>
+          errors={errors.name?.message}></Input>
         <Input
           label="Categoria"
           type="text"
           id="genre"
           placeholder="Digite a categoria aqui"
           register={register("genre")}
-          errors={errors.genre?.message}
-        ></Input>
+          errors={errors.genre?.message}></Input>
         <Input
           label="Data de Lançamento"
           type="text"
           id="release"
           placeholder="Digite a data aqui"
           register={register("release")}
-          errors={errors.release?.message}
-        ></Input>
+          errors={errors.release?.message}></Input>
         <Input
           label="Duração"
           type="text"
           id="duration"
           placeholder="Digite a duração aqui"
           register={register("duration")}
-          errors={errors.duration?.message}
-        ></Input>
+          errors={errors.duration?.message}></Input>
         <Input
           label="Capa"
           type="text"
           id="cover"
           placeholder="Coloque o link da capa aqui"
           register={register("cover")}
-          errors={errors.cover?.message}
-        ></Input>
+          errors={errors.cover?.message}></Input>
         <Input
           label="Classificação"
           type="text"
           id="classification"
           placeholder="Digite a classificação aqui"
           register={register("classification")}
-          errors={errors.classification?.message}
-        ></Input>
+          errors={errors.classification?.message}></Input>
         <label htmlFor="synopsis">Sinopse</label>
         <textarea id="synopsis" {...register("synopsis")}></textarea>
         <button type="submit"> Enviar </button>

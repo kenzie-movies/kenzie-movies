@@ -1,4 +1,5 @@
 export interface iMoviesContext {
+  userId: string | null;
   movies: iGetMovies[];
   modalMovie: boolean;
   modalUser: boolean;
