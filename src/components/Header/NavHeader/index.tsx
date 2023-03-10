@@ -7,14 +7,21 @@ import { MoviesContext } from "../../../providers/MoviesContext";
 
 const NavHeader = () => {
   const { userLogOut } = useContext(UserContext);
-  const { setModalMovie, setModalUser } = useContext(MoviesContext);
+
+  const { setModalMovie, setModalAddOpen } = useContext(MoviesContext);
 
   return (
     <nav>
-      <button className="icon-movie" onClick={() => setModalMovie(true)}>
+      <button className="icon-movie" onClick={() => setModalAddOpen(true)}>
+              <TbMovie />
+        Solicitar Filme
+      </button>
+      
+       <button className="icon-movie" onClick={() => setModalMovie(true)}>
         <TbMovie />
         Solicitar Filme
       </button>
+     
       <button className="icon-profile" onClick={() => setModalUser(true)}>
         <CgProfile />
         Seu Perfil

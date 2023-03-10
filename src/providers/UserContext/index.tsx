@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { api } from "../../services/api";
 import {
+  iUser,
   iLoginUser,
   iRegisterUser,
   iResponseUser,
@@ -15,6 +16,28 @@ export const UserContext = createContext({} as iUserContext);
 export const UserProvider = ({ children }: iUserProviderProps) => {
   const [user, setUser] = useState<iResponseUser | null>(null);
   const navigate = useNavigate();
+
+  const id = localStorage.getItem("@KenzieMovies:UserId");
+  const token = localStorage.getItem("@KenzieMovies:UserToken");
+
+  useEffect(() => {
+    const getuser = async (id: string) => {
+      try {
+        const response = await api.get<iResponseUser>(`users/${id}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        setUser(response.data);
+        console.log(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    if (id) {
+      getuser(id);
+    }
+  }, []);
 
   const userRegister = async (data: iRegisterUser) => {
     const userData = { ...data, isAdmin: false };
@@ -43,7 +66,7 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
         "@KenzieMovies:UserId",
         JSON.stringify(response.data.user.id)
       );
-      navigate("/profile");
+      navigate("/home");
     } catch (error) {
       toast.error("Email ou senha inválidos");
 

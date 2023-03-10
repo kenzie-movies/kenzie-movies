@@ -7,6 +7,7 @@ import RegisterPage from "../pages/RegisterPage";
 import Profile from "../pages/profile";
 import AdminPage from "../pages/AdminPage";
 import SearchPage from "../pages/SearchPage";
+import HomePage from "../pages/HomePage";
 
 const Router = () => {
   return (
@@ -14,6 +15,7 @@ const Router = () => {
       <Routes>
         <Route path="/" element={<InitialPage />} />
         <Route path="/register" element={<RegisterPage />} />
+        <Route path="/home" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="*" element={<NotFoundPage />} />

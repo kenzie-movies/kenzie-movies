@@ -17,9 +17,22 @@ export const MoviesProvider = ({ children }: iMoviesProviderProps) => {
   const [searchMovie, setSearchMovie] = useState("");
   const [movieFilter, setMovieFilter] = useState<iGetMovies[]>([]);
   const [modalEditOpen, setModalEditOpen] = useState(false);
+  const [modalAddOpen, setModalAddOpen] = useState(false);
+  const [modalInfoOpen, setModalInfoOpen] = useState(false);
   const [modalMovie, setModalMovie] = useState(false);
   const [modalUser, setModalUser] = useState(false);
   const [editingMovie, setEditingMovie] = useState<iGetEditMovie>({
+    name: "",
+    synopsis: "",
+    cover: "",
+    release: "",
+    duration: "",
+    genre: "",
+    classification: "",
+    verified: false,
+    id: 0,
+  });
+  const [infoMovie, setInfoMovie] = useState<iGetEditMovie>({
     name: "",
     synopsis: "",
     cover: "",
@@ -133,6 +146,32 @@ export const MoviesProvider = ({ children }: iMoviesProviderProps) => {
     } catch (error) {}
   };
 
+  const addMovie = async (data: iGetEditMovie) => {
+    try {
+      const response = await api.post(`/movies`, data, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      setModalAddOpen(false);
+      toast.warn("Filme será verificado pelo Admin");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const showModalInfoMovie = (movieId: number) => {
+    const movieFound = movies.find((movie) => {
+      if (movie.id === movieId) {
+        setModalInfoOpen(true);
+
+        return movie;
+      }
+    });
+    setInfoMovie(movieFound as iGetEditMovie);
+    return movieFound;
+  };
+
   return (
     <MoviesContext.Provider
       value={{
@@ -153,6 +192,13 @@ export const MoviesProvider = ({ children }: iMoviesProviderProps) => {
         editingMovie,
         movieVerify,
         deleteMovie,
+        showModalInfoMovie,
+        addMovie,
+        setModalAddOpen,
+        modalAddOpen,
+        modalInfoOpen,
+        setModalInfoOpen,
+        infoMovie,
       }}
     >
       {children}
