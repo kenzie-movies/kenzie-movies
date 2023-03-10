@@ -3,7 +3,6 @@ import StyledBodyProfile  from "./style";
 import StyledCardMovieAdd from "../CardMovie/style";
 import CardMovie from "../CardMovie";
 import { UserContext } from "../../providers/UserContext";
-import CardMovieAdd from "../CardMovieAdd";
 import StyledCardMovie from "../CardMovie/style";
 
 const BodyProfile = () => {
@@ -27,9 +26,7 @@ const BodyProfile = () => {
         <p>Filmes adicionados por você</p>
       </div>
 
-      <StyledCardMovieAdd>
-        <CardMovieAdd />
-      </StyledCardMovieAdd>
+    
     </StyledBodyProfile>
   );
 };
