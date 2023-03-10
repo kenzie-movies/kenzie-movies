@@ -1,5 +1,11 @@
+
+
 export interface iMoviesContext {
   movies: iGetMovies[];
+  modalMovie:boolean;
+  modalUser:boolean;
+  setModalMovie:React.Dispatch<React.SetStateAction<boolean>>;
+  setModalUser:React.Dispatch<React.SetStateAction<boolean>>;
   setMovies: React.Dispatch<React.SetStateAction<iGetMovies[]>>;
   searchMovie: string;
   setSearchMovie: React.Dispatch<React.SetStateAction<string>>;
@@ -13,6 +19,7 @@ export interface iMoviesContext {
   movieVerify: (movieId: number) => Promise<void>;
   deleteMovie: (movieId: number) => Promise<void>;
 }
+
 
 export interface iMoviesProviderProps {
   children: React.ReactNode;

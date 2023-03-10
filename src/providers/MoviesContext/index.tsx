@@ -17,6 +17,8 @@ export const MoviesProvider = ({ children }: iMoviesProviderProps) => {
   const [searchMovie, setSearchMovie] = useState("");
   const [movieFilter, setMovieFilter] = useState<iGetMovies[]>([]);
   const [modalEditOpen, setModalEditOpen] = useState(false);
+  const [modalMovie, setModalMovie] = useState(false);
+  const [modalUser, setModalUser] = useState(false);
   const [editingMovie, setEditingMovie] = useState<iGetEditMovie>({
     name: "",
     synopsis: "",
@@ -135,6 +137,10 @@ export const MoviesProvider = ({ children }: iMoviesProviderProps) => {
     <MoviesContext.Provider
       value={{
         movies,
+        modalUser,
+        modalMovie,
+        setModalUser,
+        setModalMovie,
         setMovies,
         searchMovie,
         setSearchMovie,
@@ -147,7 +153,8 @@ export const MoviesProvider = ({ children }: iMoviesProviderProps) => {
         editingMovie,
         movieVerify,
         deleteMovie,
-      }}>
+      }}
+    >
       {children}
     </MoviesContext.Provider>
   );
