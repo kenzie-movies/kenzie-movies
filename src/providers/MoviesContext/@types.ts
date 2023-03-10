@@ -1,5 +1,3 @@
-
-
 export interface iMoviesContext {
   movies: iGetMovies[];
   modalMovie:boolean;
