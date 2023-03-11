@@ -42,3 +42,4 @@ const StyledMovies = styled.div`
 `;
 
 export default StyledMovies;
+
