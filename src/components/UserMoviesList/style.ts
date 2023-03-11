@@ -3,43 +3,66 @@ import styled from "styled-components";
 const StyledMovies = styled.div`
   display: flex;
   flex-direction: column;
-  display: flex;
-  flex-direction: column;
-  max-width: 1200px;
-  margin: 0px auto;
+  gap: 25px;
 
-  img {
-    /* display: flex;
-      margin: 0 auto; */
-    width: 12rem;
-    margin-bottom: 2rem;
-  }
+  width: 90%;
+  max-width: 1200px;
+  margin: 50px auto;
 
   h1 {
-    font-size: 27px;
+    font-size: var(--title-one);
     font-weight: bolder;
     color: white;
-    margin-bottom: 2rem;
   }
 
-  li {
+  ul {
     display: flex;
-    flex-direction: column;
-    width: 200px;
-    display: flex;
-    align-items: center;
-    padding: 1rem;
+    gap: 32px;
+
+    padding: 25px;
+
+    width: 100%;
+    overflow-x: auto;
+
+    li {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      text-align: center;
+      width: 250px;
+
+      border-radius: var(--border-radius);
+      transition: all 0.5s;
+      cursor: pointer;
+
+      img {
+        border-radius: var(--border-radius);
+
+        width: 250px;
+      }
+
+      h3 {
+        color: var(--color-white);
+        font-size: var(--title-three);
+        font-weight: bold;
+      }
+
+      :hover {
+        box-shadow: 0 0 15px 0 var(--color-secondary),
+          0 0 20px 0 var(--color-secondary), 0 0 25px 0 var(--color-secondary);
+        transform: scale(1.05);
+      }
+    }
   }
-  button {
-    background-color: var(--color-secondary);
-    padding: 15px;
-    border: none;
-    color: white;
-    font-weight: bolder;
-    border-radius: 20px;
-    width: 8rem;
-    text-align: center;
-    margin-bottom: 15px;
+
+  @media (min-width: 700px) {
+    ul {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      place-items: center;
+      border-radius: 8px;
+    }
   }
 `;
 

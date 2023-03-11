@@ -1,15 +1,19 @@
 import { useContext } from "react";
 import { MoviesContext } from "../../../providers/MoviesContext";
+import { InfoMoviesModalStyled } from "./style";
 
 const InfoMoviesModal = () => {
-  const { infoMovie, setModalInfoOpen } = useContext(MoviesContext);
+  const { infoMovie, setModalInfoOpen, addFavoriteMovie } =
+    useContext(MoviesContext);
 
   return (
-    <>
-      <div>
-        <h2>{infoMovie.name}</h2>
-        <button onClick={() => setModalInfoOpen(false)}>X</button>
-        <div>
+    <InfoMoviesModalStyled>
+      <div className="info-modal">
+        <header>
+          <h2>{infoMovie.name}</h2>
+          <button onClick={() => setModalInfoOpen(false)}>X</button>
+        </header>
+        <section>
           <img src={infoMovie.cover} alt="" />
 
           <div>
@@ -17,11 +21,13 @@ const InfoMoviesModal = () => {
             <p>{infoMovie.synopsis}</p>
             <p>{infoMovie.duration}</p>
             <p>{infoMovie.genre}</p>
-            <button>Adicionar aos favoritos</button>
+            <button onClick={() => addFavoriteMovie(infoMovie.id)}>
+              Adicionar aos favoritos
+            </button>
           </div>
-        </div>
+        </section>
       </div>
-    </>
+    </InfoMoviesModalStyled>
   );
 };
 export default InfoMoviesModal;
