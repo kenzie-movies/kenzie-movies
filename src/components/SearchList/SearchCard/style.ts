@@ -14,14 +14,15 @@ export const SearchCardStyle = styled.li<SearchCardStyleProps>`
   width: 80%;
   border-radius: var(--border-radius);
 
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+  background-image: linear-gradient(
+      rgba(43, 40, 84, 0.6),
+      rgba(43, 40, 84, 0.6)
+    ),
     url(${(props) => props.image});
   background-attachment: fixed;
   background-size: cover;
   background-position: top;
-  box-shadow: 0 0 10px 0 var(--color-white);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 0 10px 0 var(--color-secondary);
 
   img {
     width: 200px;
@@ -37,7 +38,7 @@ export const SearchCardStyle = styled.li<SearchCardStyleProps>`
     padding: 16px 0;
 
     h2 {
-      color: var(--color-secondary);
+      color: var(--color-white);
       font-size: var(--title-two);
       font-weight: bold;
     }

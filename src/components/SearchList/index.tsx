@@ -8,9 +8,11 @@ const SearchList = () => {
 
   return (
     <SearchListStyle>
-      {movieFilter.map((movie) => (
-        <SearchCard key={movie.id} movie={movie} />
-      ))}
+      {movieFilter.length > 0 ? (
+        movieFilter.map((movie) => <SearchCard key={movie.id} movie={movie} />)
+      ) : (
+        <h2>Por favor preencha a pesquisa</h2>
+      )}
     </SearchListStyle>
   );
 };

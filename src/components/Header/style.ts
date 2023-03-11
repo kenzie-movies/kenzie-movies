@@ -22,7 +22,7 @@ export const StyledHeader = styled.header`
   .icon-back {
     display: flex;
     flex-direction: column;
-    margin-top: 10px;
+    margin-top: 5px;
 
     color: white;
     font-weight: bolder;
