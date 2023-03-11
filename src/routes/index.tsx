@@ -8,19 +8,63 @@ import Profile from "../pages/profile";
 import AdminPage from "../pages/AdminPage";
 import SearchPage from "../pages/SearchPage";
 import HomePage from "../pages/HomePage";
+import PublicRoutes from "./PublicRoutes";
+import ProtectedRoutes from "./ProtectedRoutes";
+import AdminRoute from "./AdminRoute";
+import { MoviesProvider } from "../providers/MoviesContext";
+import UserRoute from "./UserRoute";
 
 const Router = () => {
   return (
     <AnimatePresence>
       <Routes>
-        <Route path="/" element={<InitialPage />} />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/home" element={<HomePage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="*" element={<NotFoundPage />} />
-        <Route path="/search" element={<SearchPage />} />
-        <Route path="/admin" element={<AdminPage />} />
+        <Route path="/" element={<PublicRoutes />}>
+          <Route index element={<InitialPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Route>
+
+        <Route path="/" element={<ProtectedRoutes />}>
+          <Route
+            path="/home"
+            element={
+              <MoviesProvider>
+                <HomePage />
+              </MoviesProvider>
+            }
+          />
+          <Route
+            path="/search"
+            element={
+              <MoviesProvider>
+                <SearchPage />
+              </MoviesProvider>
+            }
+          />
+        </Route>
+
+        <Route path="/" element={<UserRoute />}>
+          <Route
+            path="/profile"
+            element={
+              <MoviesProvider>
+                <Profile />
+              </MoviesProvider>
+            }
+          />
+        </Route>
+
+        <Route path="/" element={<AdminRoute />}>
+          <Route
+            path="/admin"
+            element={
+              <MoviesProvider>
+                <AdminPage />
+              </MoviesProvider>
+            }
+          />
+        </Route>
       </Routes>
     </AnimatePresence>
   );

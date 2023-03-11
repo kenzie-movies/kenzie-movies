@@ -1,14 +1,11 @@
 import styled from "styled-components";
 
 export const StyledHeader = styled.header`
-  /* max-width: 1200px; */
   margin: 0px auto;
   display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+
   margin-top: 20px;
   border-bottom: 2px solid rgb(255, 255, 255, 10%);
 
@@ -25,7 +22,18 @@ export const StyledHeader = styled.header`
   .icon-back {
     display: flex;
     flex-direction: column;
-    margin-top: 5px;
+    margin-top: 10px;
+
+    color: white;
+    font-weight: bolder;
+    font-size: 15px;
+  }
+
+  .icon-go-profile {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 10px;
 
     color: white;
     font-weight: bolder;
@@ -44,5 +52,11 @@ export const StyledHeader = styled.header`
     color: white;
     border: none;
     padding: 10px;
+  }
+
+  @media (min-width: 900px) {
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
   }
 `;
