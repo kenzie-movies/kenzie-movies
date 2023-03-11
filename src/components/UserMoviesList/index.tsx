@@ -8,16 +8,17 @@ function UserMoviesList() {
   return (
     <StyledMovies>
       <h1> Todos os Filmes </h1>
-      <>
+      <ul>
         {movies.map(
           (movie) =>
             movie.verified && (
               <li key={movie.id} onClick={() => showModalInfoMovie(movie.id)}>
                 <img src={movie.cover} alt={movie.name} />
+                <h3>{movie.name}</h3>
               </li>
             )
         )}
-      </>
+      </ul>
     </StyledMovies>
   );
 }
