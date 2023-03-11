@@ -1,5 +1,4 @@
 export interface iMoviesContext {
-  userId: string | null;
   movies: iGetMovies[];
   modalMovie: boolean;
   modalUser: boolean;
@@ -22,6 +21,7 @@ export interface iMoviesContext {
   setModalInfoOpen: (value: React.SetStateAction<boolean>) => void;
   modalInfoOpen: boolean;
   infoMovie: iGetEditMovie;
+  addFavoriteMovie: (movieId: number) => void;
 }
 
 export interface iMoviesProviderProps {

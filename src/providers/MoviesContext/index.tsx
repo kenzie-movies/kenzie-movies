@@ -13,12 +13,14 @@ export const MoviesContext = createContext({} as iMoviesContext);
 
 export const MoviesProvider = ({ children }: iMoviesProviderProps) => {
   const token = localStorage.getItem("@KenzieMovies:UserToken");
-  const userId = localStorage.getItem("@KenzieMovies:UserId");
+
   const [movies, setMovies] = useState<iGetMovies[]>([]);
+  const [myFavoriteMovies, setMyFavoriteMovies] = useState<iGetMovies[]>(
+    JSON.parse(localStorage.getItem("@KenzieMovies:Favorites")!) || []
+  );
   const [searchMovie, setSearchMovie] = useState("");
   const [movieFilter, setMovieFilter] = useState<iGetMovies[]>([]);
   const [modalEditOpen, setModalEditOpen] = useState(false);
-  // const [modalAddOpen, setModalAddOpen] = useState(false);
   const [modalInfoOpen, setModalInfoOpen] = useState(false);
   const [modalMovie, setModalMovie] = useState(false);
   const [modalUser, setModalUser] = useState(false);
@@ -175,10 +177,28 @@ export const MoviesProvider = ({ children }: iMoviesProviderProps) => {
     return movieFound;
   };
 
+  const addFavoriteMovie = (movieId: number) => {
+    const movieFound = movies.find((movie) => {
+      if (movie.id === movieId) {
+        setMyFavoriteMovies([...myFavoriteMovies, movie]);
+      }
+    });
+
+    if (movieFound) {
+      setMyFavoriteMovies([...myFavoriteMovies, movieFound]);
+    }
+  };
+
+  useEffect(() => {
+    localStorage.setItem(
+      "@KenzieMovies:Favorites",
+      JSON.stringify(myFavoriteMovies)
+    );
+  }, [myFavoriteMovies]);
+
   return (
     <MoviesContext.Provider
       value={{
-        userId,
         movies,
         modalUser,
         modalMovie,
@@ -201,6 +221,7 @@ export const MoviesProvider = ({ children }: iMoviesProviderProps) => {
         modalInfoOpen,
         setModalInfoOpen,
         infoMovie,
+        addFavoriteMovie,
       }}>
       {children}
     </MoviesContext.Provider>

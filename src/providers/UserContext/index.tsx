@@ -65,6 +65,7 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
     setUser(null);
     localStorage.removeItem("@KenzieMovies:UserToken");
     localStorage.removeItem("@KenzieMovies:User");
+    localStorage.removeItem("@KenzieMovies:Favorites");
 
     toast.success("Logout realizado com sucesso.");
     navigate("/");
