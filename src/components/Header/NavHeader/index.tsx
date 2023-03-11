@@ -5,7 +5,7 @@ import { useContext } from "react";
 import { UserContext } from "../../../providers/UserContext";
 import { MoviesContext } from "../../../providers/MoviesContext";
 import { Link, useLocation } from "react-router-dom";
-import { MdArrowBack } from 'react-icons/md'
+import { MdArrowBack } from "react-icons/md";
 
 const NavHeader = () => {
   const { userLogOut } = useContext(UserContext);
@@ -18,29 +18,31 @@ const NavHeader = () => {
   return (
     <nav>
       {pathname === "/home" ? null : (
-        <Link to={"/home"}  className= 'icon-back'>
-          {" "}
-          <MdArrowBack />
+        <Link to={"/home"} className="icon-back">
+          <MdArrowBack size={30} />
           Voltar
         </Link>
       )}
       {pathname === "/admin" || pathname === "/search" ? null : (
         <button className="icon-movie" onClick={() => setModalMovie(true)}>
-          <TbMovie />
+          <TbMovie size={30} />
           Solicitar Filme
         </button>
       )}
 
       {pathname === "/home" || pathname === "/search" ? (
-        <Link to={"/profile"}>Seu Perfil</Link>
+        <Link to={"/profile"} className="icon-go-profile">
+          <CgProfile size={30} />
+          Seu Perfil
+        </Link>
       ) : (
         <button className="icon-profile" onClick={() => setModalUser(true)}>
-          <CgProfile />
+          <CgProfile size={30} />
           Editar Perfil
         </button>
       )}
       <button className="icon-getout" onClick={userLogOut}>
-        <HiOutlineArrowRightOnRectangle />
+        <HiOutlineArrowRightOnRectangle size={30} />
         Sair
       </button>
     </nav>
