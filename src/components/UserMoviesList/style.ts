@@ -3,8 +3,10 @@ import styled from "styled-components";
 const StyledMovies = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 1rem;
- 
+  display: flex;
+  flex-direction: column;
+  max-width: 1200px;
+  margin: 0px auto;
 
   img {
     /* display: flex;
@@ -14,10 +16,10 @@ const StyledMovies = styled.div`
   }
 
   h1 {
-    font-size: 20px;
+    font-size: 27px;
     font-weight: bolder;
     color: white;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
   }
 
   li {
@@ -42,4 +44,3 @@ const StyledMovies = styled.div`
 `;
 
 export default StyledMovies;
-

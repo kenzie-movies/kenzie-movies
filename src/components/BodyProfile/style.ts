@@ -4,22 +4,31 @@ const StyledBodyProfile = styled.main`
   padding: 0 1rem;
   margin: 0 auto;
   padding-bottom: 2rem;
+  max-width: 1200px;
+  align-items: center;
+  margin: 0 auto;
+  padding: 2px 2rem 29rem;
 
   .infoUser {
     margin: 1rem 0;
 
     h2 {
-      color: #fff;
-      font-weight: bold;
+      font-size: 30px;
+    font-weight: bolder;
+    color: white;
+    margin-bottom: 3rem
+    }
 
-      span {
-        color: #be0072;
-      }
+    span{
+      color: var(--color-secondary);
+
     }
 
     p {
-      margin: 1.5rem 0;
-      color: #fff;
+      font-size: 27px;
+      font-weight: bolder;
+      color: white;
+      margin-bottom: 2rem;
     }
   }
 
@@ -55,10 +64,11 @@ const StyledBodyProfile = styled.main`
   }
 
   .moviesAdd {
-    margin: 2rem 0;
-
+    margin: 3rem 0;
     p {
-      color: #fff;
+      font-size: 27px;
+      font-weight: bolder;
+      color: white;
     }
   }
 

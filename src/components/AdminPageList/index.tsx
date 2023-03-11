@@ -6,7 +6,7 @@ function AdminList() {
   return (
     <StyledContainer>
       <StyledSection>
-        <h1> Olá, Admin!</h1>
+        <h1> Olá, <i>Admin!</i></h1>
       </StyledSection>
 
       <div>

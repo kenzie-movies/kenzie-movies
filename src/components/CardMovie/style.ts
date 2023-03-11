@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const StyledCardMovie = styled.ul`
-  background-color: #2f2a61;
+    background: linear-gradient(to right, #302b63, #0f0c30);
   display: flex;
   gap: 1rem;
   overflow-x: auto;
@@ -37,6 +37,8 @@ const StyledCardMovie = styled.ul`
     grid-template-columns: repeat(2, 1fr);
     place-items: center;
     border-radius: 8px;
+    max-width: 1200px;
+    margin: 0 auto;
 
   }
 

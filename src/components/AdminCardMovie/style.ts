@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledContainer = styled.div`
-  padding: 2rem;
+  padding: 12px;
   p{
     color: white;
     font-weight: bolder;
@@ -14,9 +14,9 @@ export const StyledContainer = styled.div`
   }
   }
 
-  div {
+
     h2 {
-      font-size: 20px;
+      font-size: 2px;
       font-weight: bolder;
       color: white;
       padding: 10px;
@@ -28,11 +28,13 @@ export const StyledContainer = styled.div`
       margin-bottom: 2rem;
     }
     p {
+      margin-top: 15px;
+      font-size: 25px;
       color: white;
       font-weight: bold;
       padding: 10px;
     }
-  }
+  
 `;
 
 export const StyledButton = styled.div`
