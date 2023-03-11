@@ -11,6 +11,8 @@ import Header from "../../components/Header";
 const Profile = () => {
   const { modalMovie, modalUser } = useContext(MoviesContext);
 
+  document.title = "Perfil";
+
   return (
     <StyledProfile>
       <Header />

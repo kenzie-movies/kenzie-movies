@@ -14,6 +14,8 @@ const HomePage = () => {
   const { modalMovie, modalInfoOpen } = useContext(MoviesContext);
   const { user } = useContext(UserContext);
 
+  document.title = "Kenzie Movies";
+
   return (
     <>
       <Header />

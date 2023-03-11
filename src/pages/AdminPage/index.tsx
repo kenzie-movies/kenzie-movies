@@ -7,6 +7,8 @@ import { MoviesContext } from "../../providers/MoviesContext";
 const AdminPage = () => {
   const { modalEditOpen } = useContext(MoviesContext);
 
+  document.title = "Admin";
+
   return (
     <>
       <Header></Header>
