@@ -4,13 +4,13 @@ const StyledMovies = styled.div`
   display: flex;
   flex-direction: column;
   padding: 1rem;
-  max-width: 500px;
-  
+
   img {
       /* display: flex;
       margin: 0 auto; */
-      width: 12rem;
+      width: 250px;
       margin-bottom: 2rem;
+      border-radius: 20px;
     }
 
     h1{
@@ -20,13 +20,22 @@ const StyledMovies = styled.div`
     margin-bottom: 3rem;
 }
 
+ul{
+  /* background-color: rgb(47, 42, 97); */
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    padding: 1rem;
+}
+
   li{
+    list-style: none;
     display: flex;
     flex-direction: column;
-    width: 200px;
-    display: flex;
+    -webkit-box-align: center;
     align-items: center;
-    padding: 1rem;
+    gap: 1rem;
+   
   }
   button {
     background-color: var(--color-secondary);
@@ -38,6 +47,20 @@ const StyledMovies = styled.div`
     width: 8rem;
     text-align: center;
    margin-bottom: 15px;
+  }
+
+  @media (min-width: 700px){
+    ul{
+      
+      display: flex;
+      overflow-x: hidden;
+      flex-wrap: wrap;
+      
+    }
+  }
+
+  @media (min-width: 700px){
+
   }
 
 `;

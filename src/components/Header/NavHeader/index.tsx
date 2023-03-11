@@ -5,6 +5,7 @@ import { useContext } from "react";
 import { UserContext } from "../../../providers/UserContext";
 import { MoviesContext } from "../../../providers/MoviesContext";
 import { Link, useLocation } from "react-router-dom";
+import { MdArrowBack } from 'react-icons/md'
 
 const NavHeader = () => {
   const { userLogOut } = useContext(UserContext);
@@ -16,7 +17,13 @@ const NavHeader = () => {
 
   return (
     <nav>
-      {pathname === "/home" ? null : <Link to={"/home"}>Voltar</Link>}
+      {pathname === "/home" ? null : (
+        <Link to={"/home"}  className= 'icon-back'>
+          {" "}
+          <MdArrowBack />
+          Voltar
+        </Link>
+      )}
       {pathname === "/admin" || pathname === "/search" ? null : (
         <button className="icon-movie" onClick={() => setModalMovie(true)}>
           <TbMovie />

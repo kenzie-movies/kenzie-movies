@@ -8,20 +8,23 @@ function AdminMoviesList() {
   return (
     <StyledMovies>
       <h1> Todos os Filmes </h1>
-      <>
-        {movies.map(
-          (movie) =>
-            movie.verified && (
-              <li key={movie.id}>
-                <img src={movie.cover} alt={movie.name} />
-                <button onClick={() => showModalEditMovie(movie.id)}>
-                  Editar
-                </button>
-                <button onClick={() => deleteMovie(movie.id)}>Remover</button>
-              </li>
-            )
-        )}
-      </>
+
+      <ul>
+        <>
+          {movies.map(
+            (movie) =>
+              movie.verified && (
+                <li key={movie.id}>
+                  <img src={movie.cover} alt={movie.name} />
+                  <button onClick={() => showModalEditMovie(movie.id)}>
+                    Editar
+                  </button>
+                  <button onClick={() => deleteMovie(movie.id)}>Remover</button>
+                </li>
+              )
+          )}
+        </>
+      </ul>
     </StyledMovies>
   );
 }

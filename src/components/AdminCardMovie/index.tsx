@@ -41,7 +41,7 @@ function AdminCardMovie() {
               )
           )
         ) : (
-          <p>Não existem filmes a serem verificados</p>
+          <p>Não existem filmes a serem verificados   :(</p>
         )}
       </ul>
     </StyledContainer>

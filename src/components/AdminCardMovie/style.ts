@@ -2,7 +2,11 @@ import styled from "styled-components";
 
 export const StyledContainer = styled.div`
   padding: 2rem;
-  max-width: 500px;
+  p{
+    color: white;
+    font-weight: bolder;
+    font-size: 20px;
+  }
 
   @media (min-width: 500px) {
     li {
