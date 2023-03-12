@@ -54,7 +54,7 @@ export const ModalEditMovie = () => {
       <form onSubmit={handleSubmit(submit)}>
         <div className="div-title">
           <h1> Editar Filme</h1>
-          <button type="button" onClick={() => setModalEditOpen(false)}>
+          <button type="button" className="buttonClose" onClick={() => setModalEditOpen(false)}>
             X
           </button>
         </div>
@@ -106,9 +106,9 @@ export const ModalEditMovie = () => {
           register={register("classification")}
           errors={errors.classification?.message}
         ></Input>
-        <label htmlFor="synopsis">Sinopse</label>
+        <label className="sinopse" htmlFor="synopsis">Sinopse</label>
         <textarea id="synopsis" {...register("synopsis")}></textarea>
-        <button type="submit"> Enviar </button>
+        <button className="buttonSbmt" type="submit"> Enviar </button>
       </form>
     </StyledModal>
   );

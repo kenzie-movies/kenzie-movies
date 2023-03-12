@@ -58,5 +58,8 @@ export const StyledHeader = styled.header`
     justify-content: space-between;
     align-items: center;
     flex-direction: row;
+    padding-left: 20px;
+    padding-right: 20px;
   }
+ 
 `;

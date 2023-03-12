@@ -18,15 +18,15 @@ const StyledMovies = styled.div`
   }
 
   h1 {
-    font-size: 27px;
+    font-size: 20px;
     font-weight: bolder;
     color: white;
     margin-bottom: 2rem;
   }
 
   ul {
-    background: linear-gradient(to right, #302b63, #0f0c30);
-   
+    background: linear-gradient(to right, #302b63, #0f0c29);
+  
     display: flex;
     gap: 1rem;
     overflow-x: auto;

@@ -13,15 +13,16 @@ export const SearchCardStyle = styled.li<SearchCardStyleProps>`
   padding: 0 32px;
   width: 80%;
   border-radius: var(--border-radius);
+  background: linear-gradient(to right, #302b63, #0f0c29);
 
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
       rgba(43, 40, 84, 0.6),
       rgba(43, 40, 84, 0.6)
     ),
     url(${(props) => props.image});
   background-attachment: fixed;
   background-size: cover;
-  background-position: top;
+  background-position: top; */
   box-shadow: 0 0 10px 0 var(--color-secondary);
 
   img {

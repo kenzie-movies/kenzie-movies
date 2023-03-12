@@ -18,10 +18,11 @@ const StyledMovies = styled.div`
   ul {
     display: flex;
     gap: 32px;
+    background: linear-gradient(to right, #302b63, #0f0c29);
 
     padding: 25px;
 
-    width: 100%;
+
     overflow-x: auto;
 
     li {
