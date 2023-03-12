@@ -3,6 +3,7 @@ import { api } from "../../services/api";
 import { toast } from "react-toastify";
 import {
   iGetEditMovie,
+  iGetMoviesUser,
   iGetMovies,
   iMoviesContext,
   iMoviesProviderProps,
@@ -13,8 +14,18 @@ export const MoviesContext = createContext({} as iMoviesContext);
 
 export const MoviesProvider = ({ children }: iMoviesProviderProps) => {
   const token = localStorage.getItem("@KenzieMovies:UserToken");
+  const userId = localStorage.getItem("@KenzieMovies:UserId");
 
   const [movies, setMovies] = useState<iGetMovies[]>([]);
+  const [myMoviesAdd, setMyMoviesAdd] = useState<iGetMoviesUser>({
+    email: "",
+    password: "",
+    name: "",
+    passwordConfirmation: "",
+    avatarLink: "",
+    id: 0,
+    movies: [],
+  });
   const [myFavoriteMovies, setMyFavoriteMovies] = useState<iGetMovies[]>(
     JSON.parse(localStorage.getItem("@KenzieMovies:Favorites")!) || []
   );
@@ -65,7 +76,27 @@ export const MoviesProvider = ({ children }: iMoviesProviderProps) => {
     };
 
     getMovies();
-  }, [movies]);
+  }, []);
+
+  useEffect(() => {
+    const getMoviesUser = async () => {
+      try {
+        const response = await api.get<iGetMoviesUser>(
+          `/users/${userId}?_embed=movies`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        setMyMoviesAdd(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    getMoviesUser();
+  }, []);
 
   const handleClick = () => {
     const moviesFilter = movies.filter((movie) =>
@@ -151,6 +182,13 @@ export const MoviesProvider = ({ children }: iMoviesProviderProps) => {
     } catch (error) {}
   };
 
+  
+  const removedMovie = (movieId:iGetMovies) => {
+    const movieFiltered = movies.filter(movie => movie !== movieId)
+    // console.log(movieFiltered)
+    setMovies(movieFiltered)
+}
+
   const addMovie = async (data: iGetEditMovie) => {
     try {
       const response = await api.post(`/movies`, data, {
@@ -158,7 +196,6 @@ export const MoviesProvider = ({ children }: iMoviesProviderProps) => {
           Authorization: `Bearer ${token}`,
         },
       });
-
       setModalMovie(false);
       toast.warn("Filme será verificado pelo Admin");
     } catch (error) {
@@ -200,6 +237,7 @@ export const MoviesProvider = ({ children }: iMoviesProviderProps) => {
     <MoviesContext.Provider
       value={{
         movies,
+        myMoviesAdd,
         modalUser,
         modalMovie,
         setModalUser,
@@ -216,13 +254,15 @@ export const MoviesProvider = ({ children }: iMoviesProviderProps) => {
         editingMovie,
         movieVerify,
         deleteMovie,
+        removedMovie,
         showModalInfoMovie,
         addMovie,
         modalInfoOpen,
         setModalInfoOpen,
         infoMovie,
         addFavoriteMovie,
-      }}>
+      }}
+    >
       {children}
     </MoviesContext.Provider>
   );
