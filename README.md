@@ -14,6 +14,8 @@
 Esta é uma plataforma interativa onde os usuários podem favoritar os filmes já existentes no site para acompanhá-los posteriormente e  também podem solicitar o cadastro de um novo filme, sendo aprovado ou rejeitado pelos administradores.
 
 
+<img src="src/assets/main.png" height=400 width=1200>
+
 administradores podem gerenciar solicitações de cadastro de novos filmes, bem como favoritá-los para futuras referências.
    
  ## Autores
