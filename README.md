@@ -11,10 +11,10 @@
  Para acessar o projeto basta [clicar aqui](https://www.google.com/).
 
 ## :hammer: Funcionalidades
+Esta é uma plataforma interativa onde os usuários podem favoritar os filmes já existentes no site para acompanhá-los posteriormente e  também podem solicitar o cadastro de um novo filme, sendo aprovado ou rejeitado pelos administradores.
 
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
 
-
+administradores podem gerenciar solicitações de cadastro de novos filmes, bem como favoritá-los para futuras referências.
    
  ## Autores
  
