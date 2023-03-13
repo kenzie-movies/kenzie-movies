@@ -7,6 +7,7 @@ import { StyledFormModalAddMovie } from "../../components/Forms/FormModalAddMovi
 import { StyledFormModalEditUser } from "../../components/Forms/FormModalEditUser/style";
 import { FormModalEditUser } from "../../components/Forms/FormModalEditUser";
 import Header from "../../components/Header";
+import { motion } from "framer-motion";
 
 const Profile = () => {
   const { modalMovie, modalUser } = useContext(MoviesContext);
@@ -14,23 +15,29 @@ const Profile = () => {
   document.title = "Perfil";
 
   return (
-    <StyledProfile>
-      <Header />
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 1.5 }}>
+      <StyledProfile>
+        <Header />
 
-      {modalMovie && (
-        <StyledFormModalAddMovie>
-          <FormModalAddMovie />
-        </StyledFormModalAddMovie>
-      )}
+        {modalMovie && (
+          <StyledFormModalAddMovie>
+            <FormModalAddMovie />
+          </StyledFormModalAddMovie>
+        )}
 
-      {modalUser && (
-        <StyledFormModalEditUser>
-          <FormModalEditUser />
-        </StyledFormModalEditUser>
-      )}
+        {modalUser && (
+          <StyledFormModalEditUser>
+            <FormModalEditUser />
+          </StyledFormModalEditUser>
+        )}
 
-      <BodyProfile />
-    </StyledProfile>
+        <BodyProfile />
+      </StyledProfile>
+    </motion.div>
   );
 };
 export default Profile;

@@ -18,13 +18,15 @@ const FormSearch = () => {
 
   return (
     <DivSearchStyle>
-      <input className="inputSearch" placeholder="Digite o filme aqui ..."
+      <input
+        className="inputSearch"
+        placeholder="Digite o filme aqui ..."
         type="text"
         onKeyDown={handleKeyDown}
         onChange={handleInputValue}
       />
       <button onClick={() => handleClick()}>
-      <AiOutlineSearch className="icon-search" />
+        <AiOutlineSearch className="icon-search" />
       </button>
     </DivSearchStyle>
   );

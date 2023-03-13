@@ -6,8 +6,13 @@ export const StyledHeader = styled.header`
   flex-direction: column;
   align-items: center;
 
-  margin-top: 20px;
   border-bottom: 2px solid rgb(255, 255, 255, 10%);
+  background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 10;
 
   .icon-movie,
   .icon-profile,
@@ -58,8 +63,5 @@ export const StyledHeader = styled.header`
     justify-content: space-between;
     align-items: center;
     flex-direction: row;
-    padding-left: 20px;
-    padding-right: 20px;
   }
- 
 `;

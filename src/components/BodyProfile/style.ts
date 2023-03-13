@@ -6,22 +6,21 @@ const StyledBodyProfile = styled.main`
   padding-bottom: 2rem;
   max-width: 1200px;
   align-items: center;
-  margin: 0 auto;
   padding: 2px 2rem 29rem;
+  margin-top: 250px;
 
   .infoUser {
     margin: 1rem 0;
 
     h2 {
       font-size: 30px;
-    font-weight: bolder;
-    color: white;
-    margin-bottom: 3rem
+      font-weight: bolder;
+      color: white;
+      margin-bottom: 3rem;
     }
 
-    span{
+    span {
       color: var(--color-secondary);
-
     }
 
     p {
@@ -103,6 +102,10 @@ const StyledBodyProfile = styled.main`
       justify-content: center;
       align-items: center;
     }
+  }
+
+  @media (min-width: 900px) {
+    margin-top: 100px;
   }
 `;
 export default StyledBodyProfile;

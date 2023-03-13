@@ -6,7 +6,6 @@ export const StyledContainer = styled.div`
   flex-direction: column;
   max-width: 1200px;
   padding: 0px 1rem 2rem;
-  margin: 0px auto;
 
   div {
     h2 {
@@ -19,8 +18,8 @@ export const StyledContainer = styled.div`
 `;
 
 export const StyledSection = styled.section`
-
   padding: 1rem;
+  margin-top: 250px;
 
   h1 {
     font-size: 30px;
@@ -29,8 +28,12 @@ export const StyledSection = styled.section`
     margin-bottom: 3rem;
   }
 
-  i{
-    color: var(--color-secondary)
+  i {
+    color: var(--color-secondary);
+  }
+
+  @media (min-width: 900px) {
+    margin-top: 100px;
   }
 `;
 

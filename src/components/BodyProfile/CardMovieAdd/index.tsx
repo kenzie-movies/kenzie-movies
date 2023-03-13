@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { MoviesContext } from "../../../providers/MoviesContext";
-import icon from "../../../assets/icon.svg";
+import CardMovieUnverified from "../CardMovieUnverified";
 
 const CardMovieAdd = () => {
   const { myMoviesAdd } = useContext(MoviesContext);
@@ -14,14 +14,11 @@ const CardMovieAdd = () => {
               <img src={myMovie.cover} alt={myMovie.name} />
             </li>
           ) : (
-            <li key={myMovie.id} className="movie-no-verified">
-              <img src={icon} />
-              <p>Filme aguardando verificação</p>
-            </li>
+            <CardMovieUnverified key={myMovie.id} />
           )
         )
       ) : (
-        <p>Você ainda não adicionou filmes a plataforma</p>
+        <h3>Você ainda não adicionou filmes a plataforma</h3>
       )}
     </>
   );

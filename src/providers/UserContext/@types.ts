@@ -4,6 +4,9 @@ export interface iUserContext {
   userRegister: (data: iRegisterUser) => Promise<void>;
   userLogin: (data: iLoginUser) => Promise<void>;
   userLogOut: () => void;
+  userUpdate: (data: iUser) => Promise<void>;
+  updateUser: boolean;
+  setUpdateUser: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export interface iUserProviderProps {

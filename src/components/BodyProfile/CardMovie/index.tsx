@@ -16,7 +16,7 @@ const CardMovie = () => {
           </li>
         ))
       ) : (
-        <p>Você ainda não favoritou nenhum filme</p>
+        <h3>Você ainda não favoritou nenhum filme</h3>
       )}
     </>
   );

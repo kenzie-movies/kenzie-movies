@@ -29,7 +29,20 @@ const StyledCardMovie = styled.ul`
       border-radius: 16px;
       padding: 5px 20px;
       text-align: center;
+
+      transition: all 0.5s;
+
+      :hover {
+        box-shadow: inset 0 0 15px 0 var(--color-secondary),
+          0 0 20px 0 var(--color-secondary), 0 0 25px 0 var(--color-secondary);
+      }
     }
+  }
+
+  h3 {
+    color: var(--color-white);
+    font-size: var(--title-three);
+    font-weight: bold;
   }
 
   @media (min-width: 700px) {

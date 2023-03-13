@@ -7,7 +7,6 @@ function AdminList() {
     <StyledContainer>
       <StyledSection>
         <h1>
-          {" "}
           Olá, <i>Admin!</i>
         </h1>
       </StyledSection>

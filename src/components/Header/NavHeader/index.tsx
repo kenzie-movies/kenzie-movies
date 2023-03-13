@@ -35,7 +35,7 @@ const NavHeader = () => {
           <CgProfile size={30} />
           Seu Perfil
         </Link>
-      ) : (
+      ) : pathname === "/admin" ? null : (
         <button className="icon-profile" onClick={() => setModalUser(true)}>
           <CgProfile size={30} />
           Editar Perfil

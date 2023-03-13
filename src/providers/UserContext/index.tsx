@@ -17,13 +17,14 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
   const [user, setUser] = useState<iUser | null>(
     JSON.parse(localStorage.getItem("@KenzieMovies:User")!) || null
   );
+  const [updateUser, setUpdateUser] = useState(false);
   const navigate = useNavigate();
 
   const token = localStorage.getItem("@KenzieMovies:UserToken");
 
   useEffect(() => {
     setUser(JSON.parse(localStorage.getItem("@KenzieMovies:User")!));
-  }, [token]);
+  }, [updateUser]);
 
   const userRegister = async (data: iRegisterUser) => {
     const userData = { ...data, isAdmin: false };
@@ -71,9 +72,30 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
     navigate("/");
   };
 
+  const userUpdate = async (data: iUser) => {
+    try {
+      const response = await api.patch(`/users/${user?.id}`, data, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <UserContext.Provider
-      value={{ user, token, userRegister, userLogin, userLogOut }}>
+      value={{
+        user,
+        token,
+        userRegister,
+        userLogin,
+        userLogOut,
+        userUpdate,
+        updateUser,
+        setUpdateUser,
+      }}>
       {children}
     </UserContext.Provider>
   );

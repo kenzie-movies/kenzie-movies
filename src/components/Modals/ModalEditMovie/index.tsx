@@ -6,6 +6,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { iGetEditMovie } from "../../../providers/MoviesContext/@types";
 import { MoviesContext } from "../../../providers/MoviesContext";
 import { StyledModal } from "./style";
+import { motion } from "framer-motion";
 
 const formSchema = yup.object({
   name: yup.string().required("Nome obrigatório"),
@@ -50,67 +51,76 @@ export const ModalEditMovie = () => {
   };
 
   return (
-    <StyledModal>
-      <form onSubmit={handleSubmit(submit)}>
-        <div className="div-title">
-          <h1> Editar Filme</h1>
-          <button type="button" className="buttonClose" onClick={() => setModalEditOpen(false)}>
-            X
-          </button>
-        </div>
-        <Input
-          label="Nome do filme"
-          type="text"
-          id="name"
-          placeholder="Digite o nome aqui"
-          register={register("name")}
-          errors={errors.name?.message}
-        ></Input>
-        <Input
-          label="Categoria"
-          type="text"
-          id="genre"
-          placeholder="Digite a categoria aqui"
-          register={register("genre")}
-          errors={errors.genre?.message}
-        ></Input>
-        <Input
-          label="Data de Lançamento"
-          type="text"
-          id="release"
-          placeholder="Digite a data aqui"
-          register={register("release")}
-          errors={errors.release?.message}
-        ></Input>
-        <Input
-          label="Duração"
-          type="text"
-          id="duration"
-          placeholder="Digite a duração aqui"
-          register={register("duration")}
-          errors={errors.duration?.message}
-        ></Input>
-        <Input
-          label="Capa"
-          type="text"
-          id="cover"
-          placeholder="Coloque o link da capa aqui"
-          register={register("cover")}
-          errors={errors.cover?.message}
-        ></Input>
-        <Input
-          label="Classificação"
-          type="text"
-          id="classification"
-          placeholder="Digite a classificação aqui"
-          register={register("classification")}
-          errors={errors.classification?.message}
-        ></Input>
-        <label className="sinopse" htmlFor="synopsis">Sinopse</label>
-        <textarea id="synopsis" {...register("synopsis")}></textarea>
-        <button className="buttonSbmt" type="submit"> Enviar </button>
-      </form>
-    </StyledModal>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.5 }}>
+      <StyledModal>
+        <form onSubmit={handleSubmit(submit)}>
+          <header className="header-title">
+            <h1> Editar Filme</h1>
+            <button
+              type="button"
+              className="buttonClose"
+              onClick={() => setModalEditOpen(false)}>
+              X
+            </button>
+          </header>
+          <section>
+            <Input
+              label="Nome do filme"
+              type="text"
+              id="name"
+              placeholder="Digite o nome aqui"
+              register={register("name")}
+              errors={errors.name?.message}></Input>
+            <Input
+              label="Categoria"
+              type="text"
+              id="genre"
+              placeholder="Digite a categoria aqui"
+              register={register("genre")}
+              errors={errors.genre?.message}></Input>
+            <Input
+              label="Data de Lançamento"
+              type="text"
+              id="release"
+              placeholder="Digite a data aqui"
+              register={register("release")}
+              errors={errors.release?.message}></Input>
+            <Input
+              label="Duração"
+              type="text"
+              id="duration"
+              placeholder="Digite a duração aqui"
+              register={register("duration")}
+              errors={errors.duration?.message}></Input>
+            <Input
+              label="Capa"
+              type="text"
+              id="cover"
+              placeholder="Coloque o link da capa aqui"
+              register={register("cover")}
+              errors={errors.cover?.message}></Input>
+            <Input
+              label="Classificação"
+              type="text"
+              id="classification"
+              placeholder="Digite a classificação aqui"
+              register={register("classification")}
+              errors={errors.classification?.message}></Input>
+            <label className="sinopse" htmlFor="synopsis">
+              Sinopse
+            </label>
+            <textarea id="synopsis" {...register("synopsis")}></textarea>
+            <button className="buttonSbmt" type="submit">
+              Enviar
+            </button>
+          </section>
+        </form>
+      </StyledModal>
+    </motion.div>
   );
 };
 

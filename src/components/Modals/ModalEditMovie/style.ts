@@ -8,9 +8,9 @@ export const StyledModal = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  position: fixed;
-  display: flex;
   flex-direction: column;
+  position: fixed;
+  z-index: 11;
 
   form {
     border-radius: 20px;
@@ -22,6 +22,9 @@ export const StyledModal = styled.div`
       rgb(15, 12, 41)
     );
     padding: 20px;
+
+    height: 80%;
+    width: 80%;
   }
 
   fieldset {
@@ -50,9 +53,13 @@ export const StyledModal = styled.div`
     border: none;
     color: var(--color-white);
     font-weight: bold;
+
+    padding: 4px 8px;
+    border-radius: 100%;
+    background-color: #6f6d92;
   }
 
-  .div-title {
+  .header-title {
     display: flex;
     justify-content: space-between;
     margin-bottom: 30px;
@@ -65,26 +72,39 @@ export const StyledModal = styled.div`
       font-weight: bold;
     }
   }
-  textarea {
-    display: flex;
-    margin: 0 auto;
-    width: 380px;
-    height: 130px;
-    background-color: transparent;
-    color: white;
-    font-weight: bolder;
-    border-radius: 4px;
-  }
-  .sinopse {
-    display: flex;
-    color: var(--color-white);
-    font-size: var(--text-default);
-    justify-content: center;
-    font-weight: bolder;
+
+  section {
+    height: 90%;
+
+    overflow-y: auto;
+
+    input {
+      width: 80%;
+      margin: 0 auto;
+    }
+
+    textarea {
+      display: flex;
+      margin: 0 auto;
+      width: 90%;
+      height: 130px;
+      background-color: transparent;
+      color: white;
+      font-weight: bolder;
+      border-radius: 4px;
+    }
+    .sinopse {
+      display: flex;
+      color: var(--color-white);
+      font-size: var(--text-default);
+      justify-content: center;
+      font-weight: bolder;
+    }
   }
 
   @media (min-width: 700px) {
     form {
+      width: 400px;
     }
   }
 `;

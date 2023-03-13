@@ -6,9 +6,9 @@ export const StyledFormModalAddMovie = styled.div`
   left: 0;
   bottom: 0;
   right: 0;
-  z-index: 1;
+  z-index: 11;
   background-color: rgb(0, 0, 0, 0.6);
-  
+
   .modal {
     position: fixed;
     top: 50%;
@@ -17,14 +17,13 @@ export const StyledFormModalAddMovie = styled.div`
     width: 90%;
     max-width: 400px;
     max-height: 500px;
-    overflow-y: auto;
   }
 
   .titleForm {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: linear-gradient(to right, #be0072, #3c1053);
+    background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
     padding: 15px;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
@@ -42,10 +41,12 @@ export const StyledFormModalAddMovie = styled.div`
     }
   }
   .boxForm {
-    background: linear-gradient(to right, #be0072, #3c1053);
+    background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
     padding: 15px;
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
+    height: 400px;
+    overflow-y: auto;
   }
 
   form {
@@ -92,6 +93,13 @@ export const StyledFormModalAddMovie = styled.div`
       font-weight: bold;
       color: var(--color-white);
       background-color: var(--color-secondary);
+
+      transition: all 0.5s;
+
+      :hover {
+        box-shadow: inset 0 0 10px 0 var(--color-secondary),
+          0 0 15px 0 var(--color-secondary), 0 0 20px 0 var(--color-secondary);
+      }
     }
 
     p {
@@ -99,6 +107,4 @@ export const StyledFormModalAddMovie = styled.div`
       font-size: 12px;
     }
   }
-
-
 `;

@@ -7,6 +7,8 @@ const StyledCardMovieAdd = styled.ul`
   overflow-x: auto;
   padding: 1rem;
 
+  background: linear-gradient(to right, #302b63, #0f0c29);
+
   li {
     list-style: none;
     display: flex;
@@ -20,6 +22,12 @@ const StyledCardMovieAdd = styled.ul`
       max-width: 250px;
       border-radius: 16px;
     }
+  }
+
+  h3 {
+    color: var(--color-white);
+    font-size: var(--title-three);
+    font-weight: bold;
   }
 
   @media (min-width: 700px) {

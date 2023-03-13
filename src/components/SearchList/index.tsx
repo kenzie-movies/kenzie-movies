@@ -9,7 +9,10 @@ const SearchList = () => {
   return (
     <SearchListStyle>
       {movieFilter.length > 0 ? (
-        movieFilter.map((movie) => <SearchCard key={movie.id} movie={movie} />)
+        movieFilter.map(
+          (movie) =>
+            movie.verified && <SearchCard key={movie.id} movie={movie} />
+        )
       ) : (
         <h2>Por favor preencha a pesquisa</h2>
       )}

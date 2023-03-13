@@ -10,6 +10,7 @@ export const InfoMoviesModalStyled = styled.div`
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 11;
 
   background-color: #0008;
 
@@ -49,6 +50,10 @@ export const InfoMoviesModalStyled = styled.div`
         border: none;
         background-color: transparent;
         font-size: var(--text-default);
+
+        padding: 4px 8px;
+        border-radius: 100%;
+        background-color: #6f6d92;
       }
     }
 

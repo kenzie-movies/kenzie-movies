@@ -9,6 +9,7 @@ import InfoMoviesModal from "../../components/Modals/InfoMoviesModal";
 import { StyledFormModalAddMovie } from "../../components/Forms/FormModalAddMovie/style";
 import { FormModalAddMovie } from "../../components/Forms/FormModalAddMovie";
 import { UserContext } from "../../providers/UserContext";
+import { motion } from "framer-motion";
 
 const HomePage = () => {
   const { modalMovie, modalInfoOpen } = useContext(MoviesContext);
@@ -17,7 +18,11 @@ const HomePage = () => {
   document.title = "Kenzie Movies";
 
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 1.5 }}>
       <Header />
       <StyledSection>
         <h1> Olá, {user?.name}</h1>
@@ -32,7 +37,7 @@ const HomePage = () => {
         </StyledFormModalAddMovie>
       )}
       {modalInfoOpen && <InfoMoviesModal />}
-    </>
+    </motion.div>
   );
 };
 export default HomePage;

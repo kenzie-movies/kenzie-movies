@@ -5,6 +5,7 @@ import { schema } from "./validations";
 import { MoviesContext } from "../../../providers/MoviesContext";
 import { iGetEditMovie } from "../../../providers/MoviesContext/@types";
 import { UserContext } from "../../../providers/UserContext";
+import { motion } from "framer-motion";
 
 export const FormModalAddMovie = () => {
   const { setModalMovie, addMovie } = useContext(MoviesContext);
@@ -27,7 +28,12 @@ export const FormModalAddMovie = () => {
   };
 
   return (
-    <div className="modal">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.5 }}
+      className="modal">
       <div className="titleForm">
         <h4>Adicione seu filme favorito</h4>
         <span onClick={() => setModalMovie(false)}>X</span>
@@ -103,6 +109,6 @@ export const FormModalAddMovie = () => {
           <button type="submit">Solicitar filme</button>
         </form>
       </div>
-    </div>
+    </motion.div>
   );
 };
