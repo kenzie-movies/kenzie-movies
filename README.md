@@ -18,7 +18,8 @@ administradores podem gerenciar solicitações de cadastro de novos filmes, bem 
 
 <img src="src/assets/adm.png" height=400 width=1200>
 
-A aplicação posssui ainda página de cadastro, login e perfil de usu
+
+ A aplicação posssui ainda página de cadastro, login e perfil.
 
   
  ## Autores
