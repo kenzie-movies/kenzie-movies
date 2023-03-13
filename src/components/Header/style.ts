@@ -12,7 +12,7 @@ export const StyledHeader = styled.header`
   position: fixed;
   top: 0;
   width: 100vw;
-  z-index: 10;
+  z-index: 1;
 
   .icon-movie,
   .icon-profile,
