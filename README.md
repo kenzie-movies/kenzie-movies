@@ -1,16 +1,14 @@
- [<img src="src/assets/logo.svg" height=100 width=1200>](https://idroid.vercel.app/)
+ [<img src="src/assets/logo.svg" height=100 width=1200>](https://www.google.com/)
 
 <!-- <h1 align="center"> Projeto final M3 </h1>  -->
     
  Este é o projeto final - M3 da aplicação **Kenzie movies** - O objetivo dessa aplicação é proporcionar aos amantes de filmes uma experiência agradável na
- hora de escolher e favoritar seus filmes preferidos. 
-     
+ hora de escolher e favoritar seus filmes preferidos.
 <!--    [<img src="https://avatars.githubusercontent.com/u/122807663?v=4" height=400 width=1200>](https://idroid.vercel.app/) -->
    
    ##  📁 Acesso ao projeto
    
-   hat is Lorem Ipsum?
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.
+ Para acessar o projeto basta [clicar aqui](https://www.google.com/).
 
 ## :hammer: Funcionalidades
 
