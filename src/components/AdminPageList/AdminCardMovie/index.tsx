@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import vingadores from "../../assets/vingadores.svg";
-import { MoviesContext } from "../../providers/MoviesContext";
+import { MoviesContext } from "../../../providers/MoviesContext";
 import { StyledButton, StyledContainer } from "./style";
 
 //componente do card de aceitar solicitação de filme
@@ -41,7 +41,7 @@ function AdminCardMovie() {
               )
           )
         ) : (
-          <p>Não existem filmes a serem verificados   :(</p>
+          <p>Não existem filmes a serem verificados :(</p>
         )}
       </ul>
     </StyledContainer>

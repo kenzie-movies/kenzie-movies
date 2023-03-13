@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import { MoviesContext } from "../../providers/MoviesContext";
-import icon from "../../assets/icon.svg";
+import { MoviesContext } from "../../../providers/MoviesContext";
+import icon from "../../../assets/icon.svg";
 
 const CardMovieAdd = () => {
   const { myMoviesAdd } = useContext(MoviesContext);

@@ -1,10 +1,10 @@
 import { useContext } from "react";
 import StyledBodyProfile from "./style";
-import StyledCardMovieAdd from "../CardMovie/style";
-import CardMovie from "../CardMovie";
+import StyledCardMovieAdd from "./CardMovieAdd/style";
+import CardMovie from "./CardMovie";
 import { UserContext } from "../../providers/UserContext";
-import StyledCardMovie from "../CardMovie/style";
-import CardMovieAdd from "../CardMovieAdd";
+import StyledCardMovie from "./CardMovie/style";
+import CardMovieAdd from "./CardMovieAdd";
 
 const BodyProfile = () => {
   const { user } = useContext(UserContext);

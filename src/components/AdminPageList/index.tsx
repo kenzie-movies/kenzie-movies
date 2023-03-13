@@ -1,12 +1,15 @@
-import AdminCardMovie from "../AdminCardMovie";
+import AdminCardMovie from "./AdminCardMovie";
 import { StyledContainer, StyledSection } from "./style";
-import AdminMoviesList from "../AdminMoviesList";
+import AdminMoviesList from "./AdminMoviesList";
 
 function AdminList() {
   return (
     <StyledContainer>
       <StyledSection>
-        <h1> Olá, <i>Admin!</i></h1>
+        <h1>
+          {" "}
+          Olá, <i>Admin!</i>
+        </h1>
       </StyledSection>
 
       <div>

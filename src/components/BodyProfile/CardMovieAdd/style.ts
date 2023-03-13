@@ -15,9 +15,9 @@ const StyledCardMovieAdd = styled.ul`
     gap: 1rem;
 
     img {
-      /* width: 100%;
+      width: 100%;
       min-width: 250px;
-      max-width: 250px; */
+      max-width: 250px;
       border-radius: 16px;
     }
   }

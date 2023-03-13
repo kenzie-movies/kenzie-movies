@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { MoviesContext } from "../../providers/MoviesContext";
+import { MoviesContext } from "../../../providers/MoviesContext";
 
 const CardMovie = () => {
   const { myFavoriteMovies, removedMovie } = useContext(MoviesContext);
