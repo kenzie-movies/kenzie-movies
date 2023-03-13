@@ -1,4 +1,4 @@
- [<img src="src/assets/logo.svg" height=100 width=1200>](https://www.google.com/)
+ [<img src="src/assets/logo.svg" height=100 width=1200>](https://kenzie-movies.vercel.app/)
 
 <!-- <h1 align="center"> Projeto final M3 </h1>  -->
     
@@ -8,7 +8,7 @@
    
    ##  📁 Acesso ao projeto
    
- Para acessar o projeto basta [clicar aqui](https://www.google.com/).
+ Para acessar o projeto basta [clicar aqui](https://kenzie-movies.vercel.app/).
 
 ## :hammer: Funcionalidades
 Esta é uma plataforma interativa onde os usuários podem favoritar os filmes já existentes no site para acompanhá-los posteriormente e  também podem solicitar o cadastro de um novo filme, sendo aprovado ou rejeitado pelos administradores.
@@ -21,7 +21,7 @@ administradores podem gerenciar solicitações de cadastro de novos filmes, bem 
 
  A aplicação posssui ainda página de cadastro e login.
  
- <img src="src/assets/login.png" height=300 width=400>   <img src="src/assets/register.png" height=300 width=400>
+ [<img src="src/assets/login.png" height=300 width=400>](https://kenzie-movies.vercel.app/login) <img src="src/assets/register.png" height=300 width=400>
  
  
 
