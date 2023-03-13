@@ -35,7 +35,7 @@ export const GlobalReset = createGlobalStyle`
 
     body {
         line-height: 150%;
-        font-family: 'Inter', sans-serif;
+        font-family: "Inter", sans-serif;
         background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
     }
     
@@ -66,7 +66,7 @@ export const GlobalReset = createGlobalStyle`
     
     blockquote:before, blockquote:after,
     q:before, q:after {
-        content: '';
+        content: "";
         content: none;
     }
     
