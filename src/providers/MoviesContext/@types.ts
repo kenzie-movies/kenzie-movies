@@ -1,6 +1,5 @@
 export interface iMoviesContext {
   movies: iGetMovies[];
-  myMoviesAdd: iGetMoviesUser;
   modalMovie: boolean;
   modalUser: boolean;
   setModalMovie: React.Dispatch<React.SetStateAction<boolean>>;
@@ -23,7 +22,9 @@ export interface iMoviesContext {
   modalInfoOpen: boolean;
   infoMovie: iGetEditMovie;
   addFavoriteMovie: (movieId: number) => void;
-  removedMovie: (movieId: iGetMovies) => void;
+  removedMovie: (movieId: number) => void;
+  myMoviesAdd: iGetMovies[];
+  myFavoriteMovies: iGetMovies[];
 }
 
 export interface iMoviesProviderProps {
@@ -49,7 +50,6 @@ export interface iSearchValue {
 
 export type iGetEditMovie = Omit<iGetMovies, "userId">;
 
-
 export interface iGetMoviesUser {
   email: string;
   password: string;
@@ -57,6 +57,5 @@ export interface iGetMoviesUser {
   passwordConfirmation: string;
   avatarLink: string;
   id: number;
-  movies:[];
+  movies: [];
 }
-

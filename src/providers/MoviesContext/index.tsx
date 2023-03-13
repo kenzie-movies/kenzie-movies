@@ -3,29 +3,22 @@ import { api } from "../../services/api";
 import { toast } from "react-toastify";
 import {
   iGetEditMovie,
-  iGetMoviesUser,
   iGetMovies,
   iMoviesContext,
   iMoviesProviderProps,
 } from "./@types";
 import { useNavigate } from "react-router-dom";
+import { iUser } from "../UserContext/@types";
 
 export const MoviesContext = createContext({} as iMoviesContext);
 
 export const MoviesProvider = ({ children }: iMoviesProviderProps) => {
+  const user = JSON.parse(localStorage.getItem("@KenzieMovies:User")!);
+
   const token = localStorage.getItem("@KenzieMovies:UserToken");
-  const userId = localStorage.getItem("@KenzieMovies:UserId");
 
   const [movies, setMovies] = useState<iGetMovies[]>([]);
-  const [myMoviesAdd, setMyMoviesAdd] = useState<iGetMoviesUser>({
-    email: "",
-    password: "",
-    name: "",
-    passwordConfirmation: "",
-    avatarLink: "",
-    id: 0,
-    movies: [],
-  });
+
   const [myFavoriteMovies, setMyFavoriteMovies] = useState<iGetMovies[]>(
     JSON.parse(localStorage.getItem("@KenzieMovies:Favorites")!) || []
   );
@@ -57,6 +50,8 @@ export const MoviesProvider = ({ children }: iMoviesProviderProps) => {
     verified: false,
     id: 0,
   });
+  const [myMoviesAdd, setMyMoviesAdd] = useState<iGetMovies[]>([]);
+  const [updateMovies, setUpdateMovies] = useState(false);
 
   const navigate = useNavigate();
 
@@ -76,27 +71,7 @@ export const MoviesProvider = ({ children }: iMoviesProviderProps) => {
     };
 
     getMovies();
-  }, []);
-
-  useEffect(() => {
-    const getMoviesUser = async () => {
-      try {
-        const response = await api.get<iGetMoviesUser>(
-          `/users/${userId}?_embed=movies`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-        setMyMoviesAdd(response.data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    getMoviesUser();
-  }, []);
+  }, [updateMovies]);
 
   const handleClick = () => {
     const moviesFilter = movies.filter((movie) =>
@@ -143,7 +118,7 @@ export const MoviesProvider = ({ children }: iMoviesProviderProps) => {
       });
 
       setEditingMovie(response.data);
-
+      setUpdateMovies(!updateMovies);
       setModalEditOpen(false);
       toast.success("Filme editado");
     } catch (error) {
@@ -157,7 +132,6 @@ export const MoviesProvider = ({ children }: iMoviesProviderProps) => {
     );
 
     const movieVerified = { ...movieFound, verified: true };
-    console.log(movieVerified);
 
     try {
       const response = await api.patch(`/movies/${movieId}`, movieVerified, {
@@ -165,6 +139,7 @@ export const MoviesProvider = ({ children }: iMoviesProviderProps) => {
           Authorization: `Bearer ${token}`,
         },
       });
+      setUpdateMovies(!updateMovies);
     } catch (error) {
       console.error(error);
     }
@@ -177,31 +152,39 @@ export const MoviesProvider = ({ children }: iMoviesProviderProps) => {
           Authorization: `Bearer ${token}`,
         },
       });
-
+      setUpdateMovies(!updateMovies);
       toast.success("Filme deletado");
-    } catch (error) {}
+    } catch (error) {
+      console.error(error);
+    }
   };
 
-  
-  const removedMovie = (movieId:iGetMovies) => {
-    const movieFiltered = movies.filter(movie => movie !== movieId)
-    // console.log(movieFiltered)
-    setMovies(movieFiltered)
-}
+  const removedMovie = (movieId: number) => {
+    const movieFiltered = myFavoriteMovies.filter(
+      (movie) => movie.id !== movieId
+    );
+
+    setMyFavoriteMovies(movieFiltered);
+    toast.success("Filme removido dos favoritos");
+  };
 
   const addMovie = async (data: iGetEditMovie) => {
+    const movieData = { ...data, verified: false };
+
     try {
-      const response = await api.post(`/movies`, data, {
+      const response = await api.post(`/movies`, movieData, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
+      setUpdateMovies(!updateMovies);
       setModalMovie(false);
       toast.warn("Filme será verificado pelo Admin");
     } catch (error) {
       console.log(error);
     }
   };
+
   const showModalInfoMovie = (movieId: number) => {
     const movieFound = movies.find((movie) => {
       if (movie.id === movieId) {
@@ -215,14 +198,16 @@ export const MoviesProvider = ({ children }: iMoviesProviderProps) => {
   };
 
   const addFavoriteMovie = (movieId: number) => {
-    const movieFound = movies.find((movie) => {
-      if (movie.id === movieId) {
-        setMyFavoriteMovies([...myFavoriteMovies, movie]);
-      }
-    });
+    const movieFound = movies.find((movie) => movie.id === movieId && movie);
 
-    if (movieFound) {
-      setMyFavoriteMovies([...myFavoriteMovies, movieFound]);
+    const someMovie = myFavoriteMovies.some((movie) => movie.id === movieId);
+
+    if (someMovie) {
+      toast.error("Filme já existe em seus favoritos");
+    } else {
+      setModalInfoOpen(false);
+      setMyFavoriteMovies([...myFavoriteMovies, movieFound!]);
+      toast.success("Filme adicionado aos favoritos");
     }
   };
 
@@ -233,11 +218,29 @@ export const MoviesProvider = ({ children }: iMoviesProviderProps) => {
     );
   }, [myFavoriteMovies]);
 
+  useEffect(() => {
+    const getMoviesUser = async () => {
+      if (user) {
+        try {
+          const response = await api.get(`/users/${user.id}?_embed=movies`, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
+          setMyMoviesAdd(response.data.movies);
+        } catch (error) {
+          console.error(error);
+        }
+      }
+    };
+
+    getMoviesUser();
+  }, [updateMovies]);
+
   return (
     <MoviesContext.Provider
       value={{
         movies,
-        myMoviesAdd,
         modalUser,
         modalMovie,
         setModalUser,
@@ -261,8 +264,9 @@ export const MoviesProvider = ({ children }: iMoviesProviderProps) => {
         setModalInfoOpen,
         infoMovie,
         addFavoriteMovie,
-      }}
-    >
+        myMoviesAdd,
+        myFavoriteMovies,
+      }}>
       {children}
     </MoviesContext.Provider>
   );

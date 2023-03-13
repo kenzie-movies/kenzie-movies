@@ -15,20 +15,10 @@ const StyledCardMovieAdd = styled.ul`
     gap: 1rem;
 
     img {
-      width: 100%;
+      /* width: 100%;
       min-width: 250px;
-      max-width: 250px;
+      max-width: 250px; */
       border-radius: 16px;
-    }
-
-    button {
-      background-color: #be0072;
-      color: #fff;
-      font-weight: bold;
-      border: none;
-      border-radius: 16px;
-      padding: 5px 20px;
-      text-align: center;
     }
   }
 
@@ -37,7 +27,6 @@ const StyledCardMovieAdd = styled.ul`
     grid-template-columns: repeat(2, 1fr);
     place-items: center;
     border-radius: 8px;
-
   }
 
   @media (min-width: 1024px) {

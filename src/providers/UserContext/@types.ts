@@ -1,5 +1,6 @@
 export interface iUserContext {
   user: iUser | null;
+  token: string | null;
   userRegister: (data: iRegisterUser) => Promise<void>;
   userLogin: (data: iLoginUser) => Promise<void>;
   userLogOut: () => void;

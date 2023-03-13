@@ -29,7 +29,6 @@ const BodyProfile = () => {
       <StyledCardMovieAdd>
         <CardMovieAdd />
       </StyledCardMovieAdd>
-      
     </StyledBodyProfile>
   );
 };

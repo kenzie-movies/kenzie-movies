@@ -72,7 +72,8 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
   };
 
   return (
-    <UserContext.Provider value={{ user, userRegister, userLogin, userLogOut }}>
+    <UserContext.Provider
+      value={{ user, token, userRegister, userLogin, userLogOut }}>
       {children}
     </UserContext.Provider>
   );
