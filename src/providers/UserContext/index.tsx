@@ -35,6 +35,8 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
       toast.success("Usuário cadastrado");
     } catch (error) {
       toast.error("Email já existente");
+    } finally {
+      console.clear();
     }
   };
 
@@ -57,8 +59,8 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
       navigate("/home");
     } catch (error) {
       toast.error("Email ou senha inválidos");
-
-      console.error(error);
+    } finally {
+      console.clear();
     }
   };
 
@@ -79,8 +81,11 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
           Authorization: `Bearer ${token}`,
         },
       });
+      toast.success("Perfil editado");
     } catch (error) {
-      console.error(error);
+      console.log(error);
+    } finally {
+      console.clear();
     }
   };
 

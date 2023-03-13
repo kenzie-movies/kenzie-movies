@@ -8,7 +8,6 @@ import {
   iMoviesProviderProps,
 } from "./@types";
 import { useNavigate } from "react-router-dom";
-import { iUser } from "../UserContext/@types";
 
 export const MoviesContext = createContext({} as iMoviesContext);
 
@@ -67,6 +66,8 @@ export const MoviesProvider = ({ children }: iMoviesProviderProps) => {
         setMovies(response.data);
       } catch (error) {
         console.error(error);
+      } finally {
+        console.clear();
       }
     };
 
@@ -123,6 +124,8 @@ export const MoviesProvider = ({ children }: iMoviesProviderProps) => {
       toast.success("Filme editado");
     } catch (error) {
       console.log(error);
+    } finally {
+      console.clear();
     }
   };
 
@@ -142,6 +145,8 @@ export const MoviesProvider = ({ children }: iMoviesProviderProps) => {
       setUpdateMovies(!updateMovies);
     } catch (error) {
       console.error(error);
+    } finally {
+      console.clear();
     }
   };
 
@@ -156,6 +161,8 @@ export const MoviesProvider = ({ children }: iMoviesProviderProps) => {
       toast.success("Filme deletado");
     } catch (error) {
       console.error(error);
+    } finally {
+      console.clear();
     }
   };
 
@@ -182,6 +189,8 @@ export const MoviesProvider = ({ children }: iMoviesProviderProps) => {
       toast.warn("Filme será verificado pelo Admin");
     } catch (error) {
       console.log(error);
+    } finally {
+      console.clear();
     }
   };
 
@@ -230,6 +239,8 @@ export const MoviesProvider = ({ children }: iMoviesProviderProps) => {
           setMyMoviesAdd(response.data.movies);
         } catch (error) {
           console.error(error);
+        } finally {
+          console.clear();
         }
       }
     };

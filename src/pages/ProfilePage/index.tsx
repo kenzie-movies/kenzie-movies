@@ -1,4 +1,3 @@
-import StyledProfile from "./style";
 import BodyProfile from "../../components/BodyProfile";
 import { useContext } from "react";
 import { MoviesContext } from "../../providers/MoviesContext";
@@ -20,23 +19,21 @@ const Profile = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 1.5 }}>
-      <StyledProfile>
-        <Header />
+      <Header />
 
-        {modalMovie && (
-          <StyledFormModalAddMovie>
-            <FormModalAddMovie />
-          </StyledFormModalAddMovie>
-        )}
+      {modalMovie && (
+        <StyledFormModalAddMovie>
+          <FormModalAddMovie />
+        </StyledFormModalAddMovie>
+      )}
 
-        {modalUser && (
-          <StyledFormModalEditUser>
-            <FormModalEditUser />
-          </StyledFormModalEditUser>
-        )}
+      {modalUser && (
+        <StyledFormModalEditUser>
+          <FormModalEditUser />
+        </StyledFormModalEditUser>
+      )}
 
-        <BodyProfile />
-      </StyledProfile>
+      <BodyProfile />
     </motion.div>
   );
 };
