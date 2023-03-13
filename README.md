@@ -16,7 +16,7 @@ Esta é uma plataforma interativa onde os usuários podem favoritar os filmes j�
 administradores podem gerenciar solicitações de cadastro de novos filmes, bem como favoritá-los para futuras referências.
 
 
-<img src="src/assets/adm.png" height=400 width=1200>
+[<img src="src/assets/adm.png" height=400 width=1200>] (https://kenzie-movies.vercel.app/)
 
 
  A aplicação posssui ainda página de cadastro e login.
