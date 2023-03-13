@@ -1,9 +1,25 @@
-function App() {
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Router from "./routes";
+
+const App = () => {
   return (
-    <div>
-      <h1>App aqui</h1>
-    </div>
+    <>
+      <Router />
+      <ToastContainer
+        position="bottom-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
+    </>
   );
-}
+};
 
 export default App;
