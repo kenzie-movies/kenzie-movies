@@ -4,6 +4,7 @@ export const InitialPageStyle = styled.main`
   display: flex;
   justify-content: center;
   flex-wrap: wrap-reverse;
+  margin-bottom: 32px;
 
   aside {
     width: 90%;

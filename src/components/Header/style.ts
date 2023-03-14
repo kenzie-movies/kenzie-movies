@@ -6,6 +6,8 @@ export const StyledHeader = styled.header`
   flex-direction: column;
   align-items: center;
 
+  padding: 16px 0;
+
   border-bottom: 2px solid rgb(255, 255, 255, 10%);
   background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
 
@@ -22,6 +24,7 @@ export const StyledHeader = styled.header`
     font-size: 15px;
     text-align: center;
     margin: 0 auto;
+    font-weight: bold;
   }
 
   .icon-back {
@@ -30,7 +33,7 @@ export const StyledHeader = styled.header`
     margin-top: 5px;
 
     color: white;
-    font-weight: bolder;
+    font-weight: bold;
     font-size: 15px;
   }
 
@@ -41,7 +44,7 @@ export const StyledHeader = styled.header`
     margin-top: 10px;
 
     color: white;
-    font-weight: bolder;
+    font-weight: bold;
     font-size: 15px;
   }
 
