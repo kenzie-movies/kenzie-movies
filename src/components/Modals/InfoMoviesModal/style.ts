@@ -27,7 +27,6 @@ export const InfoMoviesModalStyled = styled.div`
     header {
       display: flex;
       align-items: center;
-      justify-content: center;
       position: relative;
 
       text-align: center;
@@ -39,6 +38,7 @@ export const InfoMoviesModalStyled = styled.div`
         color: var(--color-white);
         font-size: var(--title-two);
         font-weight: bold;
+        margin-right: 24px;
       }
 
       button {

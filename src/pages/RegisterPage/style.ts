@@ -6,7 +6,7 @@ export const RegisterPageStyle = styled.main`
   align-items: center;
   gap: 16px;
 
-  margin-top: 30px;
+  margin: 50px 0;
 
   header {
     display: flex;

@@ -6,7 +6,7 @@ export const LoginPageStyle = styled.main`
   align-items: center;
   gap: 16px;
 
-  margin-top: 15vh;
+  margin-top: 10vh;
 
   header {
     display: flex;
