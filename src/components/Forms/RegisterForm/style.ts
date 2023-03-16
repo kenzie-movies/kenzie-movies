@@ -38,7 +38,7 @@ export const RegisterFormStyle = styled.form`
 
     :hover {
       background: linear-gradient(to right, #302b63, #0f0c29);
-      color: var(--color-primary);
+      color: var(--color-secondary);
     }
   }
 `;

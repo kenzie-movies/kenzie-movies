@@ -1,12 +1,10 @@
 import styled from "styled-components";
 
-export const StyledWeeklyMovie = styled.div`
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    url(https://www.10wallpaper.com/wallpaper/3840x2160/1905/Avengers_Endgame_2019_Film_High_Quality_Poster_3840x2160.jpg);
+interface SearchCardStyleProps {
+  cover: string;
+}
 
-  background-size: cover;
-  background-position-y: -200px;
-
+export const StyledWeeklyMovie = styled.div<SearchCardStyleProps>`
   height: 50vh;
 
   position: relative;

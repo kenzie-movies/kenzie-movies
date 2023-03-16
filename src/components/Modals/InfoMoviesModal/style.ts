@@ -23,6 +23,7 @@ export const InfoMoviesModalStyled = styled.div`
     border-radius: var(--border-radius);
 
     background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+    position: fixed;
 
     header {
       display: flex;

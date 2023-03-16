@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import InitialPageList from "../../components/InitialPageList";
 import { Logo } from "../../components/Logo";
+import SwipperTest from "../../components/SwipperTest";
 import { InitialPageStyle } from "./style";
 
 const InitialPage = () => {
@@ -29,6 +30,8 @@ const InitialPage = () => {
           </p>
           <Link to={"/login"}>Iniciar</Link>
         </section>
+
+        {/* <SwipperTest /> */}
       </InitialPageStyle>
     </motion.div>
   );
