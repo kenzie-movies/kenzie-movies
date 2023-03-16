@@ -25,6 +25,8 @@ export const StyledModal = styled.div`
 
     height: 80%;
     width: 80%;
+
+    position: fixed;
   }
 
   fieldset {

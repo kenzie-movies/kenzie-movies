@@ -36,48 +36,49 @@ export const FormModalEditUser = () => {
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.5 }}
-      className="modal">
-      <div className="titleForm">
-        <h4>Editar usuário</h4>
-        <span onClick={() => setModalUser(false)}>X</span>
-      </div>
-      <div className="boxForm">
-        <form onSubmit={handleSubmit(submit)}>
-          <label htmlFor="name">Nome</label>
-          {errors.name?.message}
-          <input
-            id="name"
-            type="text"
-            placeholder="Digite seu nome "
-            {...register("name")}
-          />
+    <div className="modal">
+      <motion.div
+        initial={{ y: -1000 }}
+        animate={{ y: 0 }}
+        exit={{ y: 0 }}
+        transition={{ duration: 1 }}>
+        <div className="titleForm">
+          <h4>Editar usuário</h4>
+          <span onClick={() => setModalUser(false)}>X</span>
+        </div>
+        <div className="boxForm">
+          <form onSubmit={handleSubmit(submit)}>
+            <label htmlFor="name">Nome</label>
+            {errors.name?.message}
+            <input
+              id="name"
+              type="text"
+              placeholder="Digite seu nome "
+              {...register("name")}
+            />
 
-          <label htmlFor="avatarLink">Foto do perfil</label>
-          {errors.avatarLink?.message}
-          <input
-            id="avatarLink"
-            type="text"
-            placeholder="Insira url do seu perfil"
-            {...register("avatarLink")}
-          />
+            <label htmlFor="avatarLink">Foto do perfil</label>
+            {errors.avatarLink?.message}
+            <input
+              id="avatarLink"
+              type="text"
+              placeholder="Insira url do seu perfil"
+              {...register("avatarLink")}
+            />
 
-          <label htmlFor="name">Email</label>
-          {errors.email?.message}
-          <input
-            id="release"
-            type="text"
-            placeholder="Digite seu email "
-            {...register("email")}
-          />
+            <label htmlFor="name">Email</label>
+            {errors.email?.message}
+            <input
+              id="release"
+              type="text"
+              placeholder="Digite seu email "
+              {...register("email")}
+            />
 
-          <button type="submit">Atualizar</button>
-        </form>
-      </div>
-    </motion.div>
+            <button type="submit">Atualizar</button>
+          </form>
+        </div>
+      </motion.div>
+    </div>
   );
 };

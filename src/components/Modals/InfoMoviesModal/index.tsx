@@ -8,14 +8,14 @@ const InfoMoviesModal = () => {
     useContext(MoviesContext);
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.25 }}
-    >
+    <div>
       <InfoMoviesModalStyled>
-        <div className="info-modal">
+        <motion.div
+          initial={{ y: -1000 }}
+          animate={{ y: 0 }}
+          exit={{ y: 0 }}
+          transition={{ duration: 1 }}
+          className="info-modal">
           <header>
             <h2>{infoMovie.name}</h2>
             <button onClick={() => setModalInfoOpen(false)}>X</button>
@@ -33,9 +33,9 @@ const InfoMoviesModal = () => {
               </button>
             </div>
           </section>
-        </div>
+        </motion.div>
       </InfoMoviesModalStyled>
-    </motion.div>
+    </div>
   );
 };
 export default InfoMoviesModal;

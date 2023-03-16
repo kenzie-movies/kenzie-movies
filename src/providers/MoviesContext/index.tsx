@@ -67,7 +67,7 @@ export const MoviesProvider = ({ children }: iMoviesProviderProps) => {
       } catch (error) {
         console.error(error);
       } finally {
-        console.clear();
+        // console.clear();
       }
     };
 
