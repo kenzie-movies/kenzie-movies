@@ -1,10 +1,6 @@
 import styled from "styled-components";
 
-interface SearchCardStyleProps {
-  cover: string;
-}
-
-export const StyledWeeklyMovie = styled.div<SearchCardStyleProps>`
+export const StyledWeeklyMovie = styled.div`
   height: 50vh;
 
   position: relative;

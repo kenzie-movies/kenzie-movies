@@ -1,7 +1,6 @@
 import Header from "../../components/Header";
 import { StyledSection } from "../../components/AdminPageList/style";
 import WeeklyMovie from "../../components/WeeklyMovie";
-import { StyledWeeklyMovie } from "../../components/WeeklyMovie/style";
 import UserMoviesList from "../../components/UserMoviesList";
 import { useContext } from "react";
 import { MoviesContext } from "../../providers/MoviesContext";
@@ -10,6 +9,7 @@ import { StyledFormModalAddMovie } from "../../components/Forms/FormModalAddMovi
 import { FormModalAddMovie } from "../../components/Forms/FormModalAddMovie";
 import { UserContext } from "../../providers/UserContext";
 import { motion } from "framer-motion";
+import { StyledWeeklyMovie } from "../../components/WeeklyMovie/style";
 
 const HomePage = () => {
   const { modalMovie, modalInfoOpen } = useContext(MoviesContext);
