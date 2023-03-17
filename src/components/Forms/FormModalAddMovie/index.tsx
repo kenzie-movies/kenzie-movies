@@ -96,7 +96,7 @@ export const FormModalAddMovie = () => {
             />
 
             <Input
-              label="Banner"
+              label="Classificação"
               type="text"
               id="classification"
               placeholder="Insira a  faixa etária"
