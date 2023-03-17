@@ -2,10 +2,12 @@ import { useContext } from "react";
 import { MoviesContext } from "../../../providers/MoviesContext";
 import { InfoMoviesModalStyled } from "./style";
 import { motion } from "framer-motion";
+import { UserContext } from "../../../providers/UserContext";
 
 const InfoMoviesModal = () => {
   const { infoMovie, setModalInfoOpen, addFavoriteMovie } =
     useContext(MoviesContext);
+  const { user } = useContext(UserContext);
 
   return (
     <div>
@@ -28,9 +30,11 @@ const InfoMoviesModal = () => {
               <p>{infoMovie.synopsis}</p>
               <p>{infoMovie.duration}</p>
               <p>{infoMovie.genre}</p>
-              <button onClick={() => addFavoriteMovie(infoMovie.id)}>
-                Adicionar aos favoritos
-              </button>
+              {!user?.isAdmin && (
+                <button onClick={() => addFavoriteMovie(infoMovie.id)}>
+                  Adicionar aos favoritos
+                </button>
+              )}
             </div>
           </section>
         </motion.div>

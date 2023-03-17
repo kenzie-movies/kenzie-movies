@@ -24,19 +24,4 @@ export const DivSearchStyle = styled.div`
     font-weight: bold;
     height: 1rem;
   }
-
-  @media (min-width: 700px) {
-  }
 `;
-
-const StyledHeader = styled.header`
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-bottom: 2px solid rgb(255, 255, 255, 10%);
-`;
-
-export default StyledHeader;

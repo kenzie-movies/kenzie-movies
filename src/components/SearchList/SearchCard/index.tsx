@@ -1,10 +1,12 @@
 import { useContext } from "react";
 import { MoviesContext } from "../../../providers/MoviesContext";
+import { UserContext } from "../../../providers/UserContext";
 import { iSearchCardProps } from "./@types";
 import { SearchCardStyle } from "./style";
 
 const SearchCard = ({ movie }: iSearchCardProps) => {
   const { addFavoriteMovie } = useContext(MoviesContext);
+  const { user } = useContext(UserContext);
 
   return (
     <SearchCardStyle image={movie.cover}>
@@ -18,9 +20,11 @@ const SearchCard = ({ movie }: iSearchCardProps) => {
         <p>
           Gênero: <span>{movie.genre}</span>
         </p>
-        <button onClick={() => addFavoriteMovie(movie.id)}>
-          Adicionar aos Favoritos
-        </button>
+        {!user?.isAdmin && (
+          <button onClick={() => addFavoriteMovie(movie.id)}>
+            Adicionar aos Favoritos
+          </button>
+        )}
       </div>
     </SearchCardStyle>
   );
