@@ -6,6 +6,7 @@ import { MoviesContext } from "../../../providers/MoviesContext";
 import { iUser } from "../../../providers/UserContext/@types";
 import { motion } from "framer-motion";
 import { UserContext } from "../../../providers/UserContext";
+import Input from "../../Inputs/Input";
 
 export const FormModalEditUser = () => {
   const { setModalUser } = useContext(MoviesContext);
@@ -48,31 +49,31 @@ export const FormModalEditUser = () => {
         </div>
         <div className="boxForm">
           <form onSubmit={handleSubmit(submit)}>
-            <label htmlFor="name">Nome</label>
-            {errors.name?.message}
-            <input
+            <Input
+              label="Nome"
+              type="text"
               id="name"
-              type="text"
-              placeholder="Digite seu nome "
-              {...register("name")}
+              placeholder="Digite seu nome aqui"
+              register={register("name")}
+              errors={errors.name?.message}
             />
 
-            <label htmlFor="avatarLink">Foto do perfil</label>
-            {errors.avatarLink?.message}
-            <input
+            <Input
+              label="Foto do Perfil"
+              type="text"
               id="avatarLink"
-              type="text"
-              placeholder="Insira url do seu perfil"
-              {...register("avatarLink")}
+              placeholder="Coloque o link do seu avatar aqui"
+              register={register("avatarLink")}
+              errors={errors.avatarLink?.message}
             />
 
-            <label htmlFor="name">Email</label>
-            {errors.email?.message}
-            <input
-              id="release"
+            <Input
+              label="Email"
               type="text"
-              placeholder="Digite seu email "
-              {...register("email")}
+              id="email"
+              placeholder="Digite seu email aqui"
+              register={register("email")}
+              errors={errors.email?.message}
             />
 
             <button type="submit">Atualizar</button>

@@ -11,7 +11,7 @@ const WeeklyMovieCard = ({ movie }: WeeklyMovieCardProps) => {
   const { showModalInfoMovie } = useContext(MoviesContext);
 
   return (
-    <WeeklyMovieCardStyle cover={movie.cover}>
+    <WeeklyMovieCardStyle image={movie.banner}>
       <h2>{movie.name}</h2>
       <button onClick={() => showModalInfoMovie(movie.id)}>Ver Sinopse</button>
     </WeeklyMovieCardStyle>

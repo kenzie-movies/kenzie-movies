@@ -53,10 +53,13 @@ export const StyledFormModalAddMovie = styled.div`
     display: flex;
     flex-direction: column;
     gap: 10px;
+    color: var(--color-white);
 
     label {
       color: var(--color-white);
-      font-size: 0.8rem;
+      font-size: 1rem;
+      font-weight: bold;
+      text-align: center;
     }
     input {
       padding: 10px;

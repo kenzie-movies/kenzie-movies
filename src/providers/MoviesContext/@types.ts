@@ -35,6 +35,7 @@ export interface iGetMovies {
   name: string;
   synopsis: string;
   cover: string;
+  banner: string;
   release: string;
   duration: string;
   genre: string;

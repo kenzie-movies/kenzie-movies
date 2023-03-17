@@ -31,6 +31,7 @@ export const MoviesProvider = ({ children }: iMoviesProviderProps) => {
     name: "",
     synopsis: "",
     cover: "",
+    banner: "",
     release: "",
     duration: "",
     genre: "",
@@ -42,6 +43,7 @@ export const MoviesProvider = ({ children }: iMoviesProviderProps) => {
     name: "",
     synopsis: "",
     cover: "",
+    banner: "",
     release: "",
     duration: "",
     genre: "",
@@ -67,7 +69,7 @@ export const MoviesProvider = ({ children }: iMoviesProviderProps) => {
       } catch (error) {
         console.error(error);
       } finally {
-        // console.clear();
+        console.clear();
       }
     };
 
@@ -240,7 +242,7 @@ export const MoviesProvider = ({ children }: iMoviesProviderProps) => {
         } catch (error) {
           console.error(error);
         } finally {
-          console.clear();
+          // console.clear();
         }
       }
     };

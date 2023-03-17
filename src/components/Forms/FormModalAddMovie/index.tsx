@@ -6,6 +6,7 @@ import { MoviesContext } from "../../../providers/MoviesContext";
 import { iGetEditMovie } from "../../../providers/MoviesContext/@types";
 import { UserContext } from "../../../providers/UserContext";
 import { motion } from "framer-motion";
+import Input from "../../Inputs/Input";
 
 export const FormModalAddMovie = () => {
   const { setModalMovie, addMovie } = useContext(MoviesContext);
@@ -40,60 +41,70 @@ export const FormModalAddMovie = () => {
         </div>
         <div className="boxForm">
           <form onSubmit={handleSubmit(submit)}>
-            <label htmlFor="name">Nome do filme</label>
-            {errors.name?.message}
-            <input
+            <Input
+              label="Nome do filme"
+              type="text"
               id="name"
-              type="text"
-              placeholder="Digite o nome do filme "
-              {...register("name")}
+              placeholder="Digite o nome do filme"
+              register={register("name")}
+              errors={errors.name?.message}
             />
 
-            <label htmlFor="name">Categoria</label>
-            {errors.genre?.message}
-            <input
+            <Input
+              label="Gênero"
+              type="text"
               id="genre"
-              type="text"
-              placeholder="Digite a categoria do filme "
-              {...register("genre")}
+              placeholder="Digite o gênero do filme"
+              register={register("genre")}
+              errors={errors.genre?.message}
             />
 
-            <label htmlFor="name">Data de lançamento</label>
-            {errors.release?.message}
-            <input
+            <Input
+              label="Data de lançamento"
+              type="text"
               id="release"
-              type="text"
-              placeholder="Digite a categoria do filme "
-              {...register("release")}
+              placeholder="Digite a data de lançamento do filme"
+              register={register("release")}
+              errors={errors.release?.message}
             />
 
-            <label htmlFor="name">Duração</label>
-            {errors.duration?.message}
-            <input
+            <Input
+              label="Duração"
+              type="text"
               id="duration"
-              type="text"
-              placeholder="Digite o tempo de duração "
-              {...register("duration")}
+              placeholder="Digite o tempo de duração do filme"
+              register={register("duration")}
+              errors={errors.duration?.message}
             />
 
-            <label htmlFor="name">Capa</label>
-            {errors.cover?.message}
-            <input
+            <Input
+              label="Capa"
+              type="text"
               id="cover"
-              type="text"
               placeholder="Insira a url da capa "
-              {...register("cover")}
+              register={register("cover")}
+              errors={errors.cover?.message}
             />
 
-            <label htmlFor="name">Classificação</label>
-            {errors.classification?.message}
-            <input
-              id="synopsis"
+            <Input
+              label="Banner"
+              type="text"
+              id="banner"
+              placeholder="Insira a url do banner "
+              register={register("banner")}
+              errors={errors.banner?.message}
+            />
+
+            <Input
+              label="Banner"
+              type="text"
+              id="classification"
               placeholder="Insira a  faixa etária"
-              {...register("classification")}
+              register={register("classification")}
+              errors={errors.classification?.message}
             />
 
-            <label htmlFor="name">Sinopse</label>
+            <label htmlFor="synopsis">Sinopse</label>
             {errors.synopsis?.message}
             <textarea
               id="synopsis"

@@ -75,7 +75,7 @@ const RegisterForm = () => {
         errors={errors.passwordConfirmation?.message}
       />
       <Input
-        label="Avatar"
+        label="Foto do Perfil"
         type="text"
         id="avatarLink"
         placeholder="Coloque o link do seu avatar aqui"

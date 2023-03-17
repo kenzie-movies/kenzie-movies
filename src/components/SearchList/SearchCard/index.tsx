@@ -9,7 +9,7 @@ const SearchCard = ({ movie }: iSearchCardProps) => {
   const { user } = useContext(UserContext);
 
   return (
-    <SearchCardStyle image={movie.cover}>
+    <SearchCardStyle image={movie.banner}>
       <img src={movie.cover} alt={movie.name} />
       <div>
         <h2>Sinopse</h2>

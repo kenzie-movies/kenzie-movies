@@ -1,12 +1,15 @@
 import styled from "styled-components";
 
 interface WeeklyMovieCardStyleProps {
-  cover: string;
+  image: string;
 }
 
 export const WeeklyMovieCardStyle = styled.li<WeeklyMovieCardStyleProps>`
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    url(${(props) => props.cover});
+    url(${(props) => props.image});
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
 
   height: 50vh;
   cursor: grab;

@@ -6,7 +6,6 @@ import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import { FaBars } from "react-icons/fa";
 import { HiX } from "react-icons/hi";
-import { motion } from "framer-motion";
 
 const Header = () => {
   const location = useLocation();
